@@ -4,6 +4,12 @@
  */
 package proyectosemestral.Vistas.administrador;
 
+import proyectosemestral.Vistas.VLogin;
+import proyectosemestral.Vistas.administrador.Reporte.Arriendo_Vehiculos;
+import proyectosemestral.Vistas.administrador.Reporte.Top5;
+import proyectosemestral.Vistas.administrador.Reporte.ValorRecaudado;
+import proyectosemestral.Vistas.administrador.Reporte.Vehiculos_por_Vendedor;
+
 
 /**
  *
@@ -47,9 +53,9 @@ public class Lista_Reporte extends javax.swing.JFrame {
         lbl_vendedor = new javax.swing.JLabel();
         lbl_icon_persona = new javax.swing.JLabel();
         pane_lado_izquierdo = new javax.swing.JPanel();
-        btn_clientes = new javax.swing.JButton();
-        btn_registrar = new javax.swing.JButton();
-        btn_devolucion = new javax.swing.JButton();
+        btn_Vendedores = new javax.swing.JButton();
+        btn_Vehiculo = new javax.swing.JButton();
+        btn_Reporte = new javax.swing.JButton();
         btn_cerrar_session = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -219,7 +225,7 @@ public class Lista_Reporte extends javax.swing.JFrame {
         lbl_autto.setText("AUTTO");
 
         lbl_listadeclientes.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lbl_listadeclientes.setText("LISTA DE CLIENTES");
+        lbl_listadeclientes.setText("REPORTES");
 
         lbl_nombe_de.setText("Angel Perugini");
 
@@ -236,9 +242,9 @@ public class Lista_Reporte extends javax.swing.JFrame {
                 .addComponent(icon_auto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_autto)
-                .addGap(320, 320, 320)
-                .addComponent(lbl_listadeclientes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_listadeclientes)
+                .addGap(277, 277, 277)
                 .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_nombe_de, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -256,17 +262,17 @@ public class Lista_Reporte extends javax.swing.JFrame {
                             .addComponent(icon_auto)
                             .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_parte_arribaLayout.createSequentialGroup()
-                            .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lbl_autto)
-                                .addComponent(lbl_listadeclientes))
-                            .addGap(28, 28, 28)))
+                            .addComponent(lbl_autto)
+                            .addGap(30, 30, 30)))
                     .addGroup(pane_parte_arribaLayout.createSequentialGroup()
                         .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pane_parte_arribaLayout.createSequentialGroup()
                                 .addGap(34, 34, 34)
                                 .addComponent(lbl_nombe_de)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_vendedor))
+                                .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_vendedor)
+                                    .addComponent(lbl_listadeclientes)))
                             .addGroup(pane_parte_arribaLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(lbl_icon_persona)))
@@ -275,33 +281,33 @@ public class Lista_Reporte extends javax.swing.JFrame {
 
         pane_lado_izquierdo.setBackground(new java.awt.Color(102, 102, 102));
 
-        btn_clientes.setBackground(new java.awt.Color(102, 102, 102));
-        btn_clientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_clientes.setText("Clientes");
-        btn_clientes.setBorder(null);
-        btn_clientes.addActionListener(new java.awt.event.ActionListener() {
+        btn_Vendedores.setBackground(new java.awt.Color(102, 102, 102));
+        btn_Vendedores.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_Vendedores.setText("Vendedores");
+        btn_Vendedores.setBorder(null);
+        btn_Vendedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_clientesActionPerformed(evt);
+                btn_VendedoresActionPerformed(evt);
             }
         });
 
-        btn_registrar.setBackground(new java.awt.Color(102, 102, 102));
-        btn_registrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_registrar.setText("Registrar");
-        btn_registrar.setBorder(null);
-        btn_registrar.addActionListener(new java.awt.event.ActionListener() {
+        btn_Vehiculo.setBackground(new java.awt.Color(102, 102, 102));
+        btn_Vehiculo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_Vehiculo.setText("Vehiculo");
+        btn_Vehiculo.setBorder(null);
+        btn_Vehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_registrarActionPerformed(evt);
+                btn_VehiculoActionPerformed(evt);
             }
         });
 
-        btn_devolucion.setBackground(new java.awt.Color(102, 102, 102));
-        btn_devolucion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_devolucion.setText("Devolución");
-        btn_devolucion.setBorder(null);
-        btn_devolucion.addActionListener(new java.awt.event.ActionListener() {
+        btn_Reporte.setBackground(new java.awt.Color(102, 102, 102));
+        btn_Reporte.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_Reporte.setText("Reporte");
+        btn_Reporte.setBorder(null);
+        btn_Reporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_devolucionActionPerformed(evt);
+                btn_ReporteActionPerformed(evt);
             }
         });
 
@@ -320,9 +326,9 @@ public class Lista_Reporte extends javax.swing.JFrame {
             .addGroup(pane_lado_izquierdoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_registrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(btn_devolucion, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
+                    .addComponent(btn_Vendedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Vehiculo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                    .addComponent(btn_Reporte, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
                 .addContainerGap())
             .addComponent(btn_cerrar_session, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
         );
@@ -330,11 +336,11 @@ public class Lista_Reporte extends javax.swing.JFrame {
             pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pane_lado_izquierdoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_Vendedores, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
-                .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_Vehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
-                .addComponent(btn_devolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(btn_cerrar_session, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
         );
@@ -345,11 +351,11 @@ public class Lista_Reporte extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pane_lado_izquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144)
+                .addGap(153, 153, 153)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pane_Reporte1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pane_Reporte2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pane_Reporte3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pane_Reporte4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -386,38 +392,60 @@ public class Lista_Reporte extends javax.swing.JFrame {
 
     private void btnGenerarReporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporte1ActionPerformed
         // TODO add your handling code here:
+        new Arriendo_Vehiculos().setVisible(true);
+        
+        this.dispose();
 
     }//GEN-LAST:event_btnGenerarReporte1ActionPerformed
 
     private void btnGenerarReporte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporte2ActionPerformed
         // TODO add your handling code here:
+        new Vehiculos_por_Vendedor().setVisible(true);
+        
+        this.dispose();
 
     }//GEN-LAST:event_btnGenerarReporte2ActionPerformed
 
     private void btnGenerarReporte3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporte3ActionPerformed
         // TODO add your handling code here:
+        new Top5().setVisible(true);
+        
+        this.dispose();
 
     }//GEN-LAST:event_btnGenerarReporte3ActionPerformed
 
     private void btnGenerarReporte4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporte4ActionPerformed
-
+        new ValorRecaudado().setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btnGenerarReporte4ActionPerformed
 
-    private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
+    private void btn_VendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VendedoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_clientesActionPerformed
+        new Lista_Vendedores().setVisible(true);
 
-    private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_VendedoresActionPerformed
+
+    private void btn_VehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VehiculoActionPerformed
         // TODO add your handling code here:
+        new Lista_Vehiculos().setVisible(true);
+        
+        this.dispose();
 
-    }//GEN-LAST:event_btn_registrarActionPerformed
+    }//GEN-LAST:event_btn_VehiculoActionPerformed
 
-    private void btn_devolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_devolucionActionPerformed
+    private void btn_ReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReporteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_devolucionActionPerformed
+    }//GEN-LAST:event_btn_ReporteActionPerformed
 
     private void btn_cerrar_sessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrar_sessionActionPerformed
         // TODO add your handling code here:
+        VLogin Ventana = new VLogin();
+
+        Ventana.setVisible(true);
+
+        this.dispose();
 
     }//GEN-LAST:event_btn_cerrar_sessionActionPerformed
 
@@ -460,10 +488,10 @@ public class Lista_Reporte extends javax.swing.JFrame {
     private javax.swing.JButton btnGenerarReporte2;
     private javax.swing.JButton btnGenerarReporte3;
     private javax.swing.JButton btnGenerarReporte4;
+    private javax.swing.JButton btn_Reporte;
+    private javax.swing.JButton btn_Vehiculo;
+    private javax.swing.JButton btn_Vendedores;
     private javax.swing.JButton btn_cerrar_session;
-    private javax.swing.JButton btn_clientes;
-    private javax.swing.JButton btn_devolucion;
-    private javax.swing.JButton btn_registrar;
     private javax.swing.JLabel icon_auto;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo2;

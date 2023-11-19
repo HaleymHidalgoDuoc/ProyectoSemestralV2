@@ -417,6 +417,9 @@ public class Registrar_Arriendo extends javax.swing.JFrame {
 
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
         // TODO add your handling code here:
+        new Lista_Clientes().setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btn_clientesActionPerformed
 
     private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
@@ -426,6 +429,9 @@ public class Registrar_Arriendo extends javax.swing.JFrame {
 
     private void btn_devolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_devolucionActionPerformed
         // TODO add your handling code here:
+         new Devolucion_vehiculo().setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btn_devolucionActionPerformed
 
     private void btn_cerrar_sessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrar_sessionActionPerformed

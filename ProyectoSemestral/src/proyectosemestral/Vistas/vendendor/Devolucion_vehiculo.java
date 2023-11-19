@@ -4,6 +4,8 @@
  */
 package proyectosemestral.Vistas.vendendor;
 
+import proyectosemestral.Vistas.VLogin;
+
 /**
  *
  * @author cetecom
@@ -282,10 +284,16 @@ public class Devolucion_vehiculo extends javax.swing.JFrame {
 
     private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
         // TODO add your handling code here:
+        new Lista_Clientes().setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btn_clientesActionPerformed
 
     private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
         // TODO add your handling code here:
+        new Registrar_Arriendo().setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btn_registrarActionPerformed
 
     private void btn_devolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_devolucionActionPerformed
@@ -294,6 +302,11 @@ public class Devolucion_vehiculo extends javax.swing.JFrame {
 
     private void btn_cerrar_sessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrar_sessionActionPerformed
         // TODO add your handling code here:
+        VLogin Ventana = new VLogin();
+
+        Ventana.setVisible(true);
+
+        this.dispose();
     }//GEN-LAST:event_btn_cerrar_sessionActionPerformed
 
     /**

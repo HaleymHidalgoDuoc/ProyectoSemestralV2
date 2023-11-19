@@ -1,6 +1,8 @@
 package proyectosemestral.Vistas;
 
 import javax.swing.JOptionPane;
+import proyectosemestral.Vistas.administrador.Lista_Vendedores;
+import proyectosemestral.Vistas.vendendor.Lista_Clientes;
 
 public class VLogin extends javax.swing.JFrame {
 
@@ -169,13 +171,29 @@ public class VLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_identificacionActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        //Login Provicional
+               //Login Provicional
+        String 
+            usr = txt_identificacion.getText(),
+            pass= pwdContraseña.getText();
+        if(usr.equals("haleym") && pass.isEmpty()){
+            //Abre la vista de Admin
+            new Lista_Vendedores().setVisible(true);
+            this.setVisible(false);
+        }else if(usr.equals("angel") && pass.isEmpty()){
+            //Abre la vista de Vendedor
+            new Lista_Clientes().setVisible(true);
+            this.setVisible(false);
+        }else{
+            //Mensaje de error
+            JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+        }
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void pwdContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdContraseñaActionPerformed
-        // TODO add your handling code here:
+ // TODO add your handling code here:
     }//GEN-LAST:event_pwdContraseñaActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */

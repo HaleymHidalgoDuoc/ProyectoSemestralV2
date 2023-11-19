@@ -5,6 +5,7 @@
 package proyectosemestral.Vistas.vendendor;
 
 import proyectosemestral.Vistas.VLogin;
+import proyectosemestral.Vistas.vendendor.Lista_Cliente.Nuevo_Cliente;
 
 /**
  *
@@ -331,12 +332,18 @@ public class Lista_Clientes extends javax.swing.JFrame {
 
     private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
         // TODO add your handling code here:
+        new Registrar_Arriendo().setVisible(true);
+        
+        this.dispose();
 
 
     }//GEN-LAST:event_btn_registrarActionPerformed
 
     private void btn_devolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_devolucionActionPerformed
         // TODO add your handling code here:
+        new Devolucion_vehiculo().setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btn_devolucionActionPerformed
 
     private void btn_cerrar_sessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrar_sessionActionPerformed
@@ -355,6 +362,8 @@ public class Lista_Clientes extends javax.swing.JFrame {
 
     private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
         // TODO add your handling code here:
+        new Nuevo_Cliente().setVisible(true);
+        
     }//GEN-LAST:event_btn_nuevoActionPerformed
 
     private void btn_icon_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_icon_buscarActionPerformed

@@ -5,6 +5,7 @@
 package proyectosemestral.Vistas.administrador;
 
 import proyectosemestral.Vistas.VLogin;
+import proyectosemestral.Vistas.administrador.Vendedor.Nuevo_Vendedor;
 
 /**
  *
@@ -35,11 +36,6 @@ public class Lista_Vendedores extends javax.swing.JFrame {
         lbl_nombe_de = new javax.swing.JLabel();
         lbl_vendedor = new javax.swing.JLabel();
         lbl_icon_persona = new javax.swing.JLabel();
-        pane_lado_izquierdo = new javax.swing.JPanel();
-        btn_clientes = new javax.swing.JButton();
-        btn_registrar = new javax.swing.JButton();
-        btn_devolucion = new javax.swing.JButton();
-        btn_cerrar_session = new javax.swing.JButton();
         btn_nuevo = new javax.swing.JButton();
         pane_fondo_buscar = new javax.swing.JPanel();
         btn_icon_buscar = new javax.swing.JButton();
@@ -49,6 +45,11 @@ public class Lista_Vendedores extends javax.swing.JFrame {
         lbl_resultados = new javax.swing.JLabel();
         lbl_num = new javax.swing.JLabel();
         pane_central = new javax.swing.JPanel();
+        pane_lado_izquierdo = new javax.swing.JPanel();
+        btn_Vendedores = new javax.swing.JButton();
+        btn_Vehiculo = new javax.swing.JButton();
+        btn_Reporte = new javax.swing.JButton();
+        btn_cerrar_session = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,72 +113,6 @@ public class Lista_Vendedores extends javax.swing.JFrame {
                                 .addGap(16, 16, 16)
                                 .addComponent(lbl_icon_persona)))
                         .addGap(43, 43, 43))))
-        );
-
-        pane_lado_izquierdo.setBackground(new java.awt.Color(102, 102, 102));
-
-        btn_clientes.setBackground(new java.awt.Color(102, 102, 102));
-        btn_clientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_clientes.setText("Clientes");
-        btn_clientes.setBorder(null);
-        btn_clientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_clientesActionPerformed(evt);
-            }
-        });
-
-        btn_registrar.setBackground(new java.awt.Color(102, 102, 102));
-        btn_registrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_registrar.setText("Registrar");
-        btn_registrar.setBorder(null);
-        btn_registrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_registrarActionPerformed(evt);
-            }
-        });
-
-        btn_devolucion.setBackground(new java.awt.Color(102, 102, 102));
-        btn_devolucion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_devolucion.setText("Devolución");
-        btn_devolucion.setBorder(null);
-        btn_devolucion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_devolucionActionPerformed(evt);
-            }
-        });
-
-        btn_cerrar_session.setBackground(new java.awt.Color(204, 204, 204));
-        btn_cerrar_session.setText("CERRAR SESION");
-        btn_cerrar_session.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cerrar_sessionActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pane_lado_izquierdoLayout = new javax.swing.GroupLayout(pane_lado_izquierdo);
-        pane_lado_izquierdo.setLayout(pane_lado_izquierdoLayout);
-        pane_lado_izquierdoLayout.setHorizontalGroup(
-            pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pane_lado_izquierdoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_registrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(btn_devolucion, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
-                .addContainerGap())
-            .addComponent(btn_cerrar_session, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-        );
-        pane_lado_izquierdoLayout.setVerticalGroup(
-            pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pane_lado_izquierdoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(btn_devolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(btn_cerrar_session, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
         );
 
         btn_nuevo.setBackground(new java.awt.Color(102, 102, 102));
@@ -284,6 +219,72 @@ public class Lista_Vendedores extends javax.swing.JFrame {
             .addGap(0, 490, Short.MAX_VALUE)
         );
 
+        pane_lado_izquierdo.setBackground(new java.awt.Color(102, 102, 102));
+
+        btn_Vendedores.setBackground(new java.awt.Color(102, 102, 102));
+        btn_Vendedores.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_Vendedores.setText("Vendedores");
+        btn_Vendedores.setBorder(null);
+        btn_Vendedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VendedoresActionPerformed(evt);
+            }
+        });
+
+        btn_Vehiculo.setBackground(new java.awt.Color(102, 102, 102));
+        btn_Vehiculo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_Vehiculo.setText("Vehiculo");
+        btn_Vehiculo.setBorder(null);
+        btn_Vehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VehiculoActionPerformed(evt);
+            }
+        });
+
+        btn_Reporte.setBackground(new java.awt.Color(102, 102, 102));
+        btn_Reporte.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_Reporte.setText("Reporte");
+        btn_Reporte.setBorder(null);
+        btn_Reporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ReporteActionPerformed(evt);
+            }
+        });
+
+        btn_cerrar_session.setBackground(new java.awt.Color(204, 204, 204));
+        btn_cerrar_session.setText("CERRAR SESION");
+        btn_cerrar_session.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cerrar_sessionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pane_lado_izquierdoLayout = new javax.swing.GroupLayout(pane_lado_izquierdo);
+        pane_lado_izquierdo.setLayout(pane_lado_izquierdoLayout);
+        pane_lado_izquierdoLayout.setHorizontalGroup(
+            pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pane_lado_izquierdoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_Vendedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Vehiculo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                    .addComponent(btn_Reporte, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
+                .addContainerGap())
+            .addComponent(btn_cerrar_session, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+        );
+        pane_lado_izquierdoLayout.setVerticalGroup(
+            pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pane_lado_izquierdoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_Vendedores, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(btn_Vehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(btn_Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(btn_cerrar_session, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -308,45 +309,22 @@ public class Lista_Vendedores extends javax.swing.JFrame {
                 .addComponent(pane_parte_arriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pane_lado_izquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pane_fondo_resultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pane_fondo_buscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_nuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(33, 33, 33)
-                        .addComponent(pane_central, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pane_central, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pane_lado_izquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_clientesActionPerformed
-
-    private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_btn_registrarActionPerformed
-
-    private void btn_devolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_devolucionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_devolucionActionPerformed
-
-    private void btn_cerrar_sessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrar_sessionActionPerformed
-        // TODO add your handling code here:
-        VLogin Ventana = new VLogin();
-
-        Ventana.setVisible(true);
-
-        this.dispose();
-    }//GEN-LAST:event_btn_cerrar_sessionActionPerformed
 
     private void btn_nuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_nuevoMouseClicked
         // TODO add your handling code here:
@@ -355,6 +333,8 @@ public class Lista_Vendedores extends javax.swing.JFrame {
 
     private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
         // TODO add your handling code here:
+        new Nuevo_Vendedor().setVisible(true);
+        
     }//GEN-LAST:event_btn_nuevoActionPerformed
 
     private void btn_icon_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_icon_buscarActionPerformed
@@ -364,6 +344,33 @@ public class Lista_Vendedores extends javax.swing.JFrame {
     private void txt_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_buscarActionPerformed
+
+    private void btn_VendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VendedoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_VendedoresActionPerformed
+
+    private void btn_VehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VehiculoActionPerformed
+        // TODO add your handling code here:
+        new Lista_Vehiculos().setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btn_VehiculoActionPerformed
+
+    private void btn_ReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReporteActionPerformed
+        // TODO add your handling code here:
+        new Lista_Reporte().setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_btn_ReporteActionPerformed
+
+    private void btn_cerrar_sessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrar_sessionActionPerformed
+        // TODO add your handling code here:
+        VLogin Ventana = new VLogin();
+
+        Ventana.setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_btn_cerrar_sessionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -404,13 +411,13 @@ public class Lista_Vendedores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Reporte;
+    private javax.swing.JButton btn_Vehiculo;
+    private javax.swing.JButton btn_Vendedores;
     private javax.swing.JButton btn_cerrar_session;
-    private javax.swing.JButton btn_clientes;
-    private javax.swing.JButton btn_devolucion;
     private javax.swing.JButton btn_flechita;
     private javax.swing.JButton btn_icon_buscar;
     private javax.swing.JButton btn_nuevo;
-    private javax.swing.JButton btn_registrar;
     private javax.swing.JLabel icon_auto;
     private javax.swing.JLabel lbl_autto;
     private javax.swing.JLabel lbl_icon_persona;
