@@ -29,7 +29,7 @@ public class Vendedor extends javax.swing.JFrame {
     private void initComponents() {
 
         pane_parte_arriba = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        icon_auto = new javax.swing.JLabel();
         lbl_autto = new javax.swing.JLabel();
         lbl_listadeclientes = new javax.swing.JLabel();
         lbl_nombe_de = new javax.swing.JLabel();
@@ -53,7 +53,7 @@ public class Vendedor extends javax.swing.JFrame {
 
         pane_parte_arriba.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/car-removebg-preview.png"))); // NOI18N
+        icon_auto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/car-removebg-preview.png"))); // NOI18N
 
         lbl_autto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_autto.setText("AUTTO");
@@ -73,7 +73,7 @@ public class Vendedor extends javax.swing.JFrame {
         pane_parte_arribaLayout.setHorizontalGroup(
             pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pane_parte_arribaLayout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(icon_auto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_autto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -93,7 +93,7 @@ public class Vendedor extends javax.swing.JFrame {
                 .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_parte_arribaLayout.createSequentialGroup()
-                            .addComponent(jLabel1)
+                            .addComponent(icon_auto)
                             .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_parte_arribaLayout.createSequentialGroup()
                             .addComponent(lbl_autto)
@@ -391,7 +391,7 @@ public class Vendedor extends javax.swing.JFrame {
     private javax.swing.JButton btn_icon_buscar;
     private javax.swing.JButton btn_nuevo;
     private javax.swing.JButton btn_registrar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel icon_auto;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel18;
