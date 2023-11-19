@@ -25,17 +25,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="pane_parte_arriba" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="pane_lado_izquierdo" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="btn_nuevo" min="-2" pref="103" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
-                      <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
+                      <Component id="pane_fondo_buscar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
-                      <Component id="jPanel19" max="32767" attributes="0"/>
+                      <Component id="pane_fondo_resultados" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="pnlTabla" max="32767" attributes="0"/>
+                  <Component id="pane_central" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
           </Group>
@@ -48,17 +48,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="pane_lado_izquierdo" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel18" alignment="1" max="32767" attributes="0"/>
+                          <Component id="pane_fondo_resultados" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="pane_fondo_buscar" alignment="1" max="32767" attributes="0"/>
                           <Component id="btn_nuevo" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="pnlTabla" min="-2" max="-2" attributes="0"/>
+                      <Component id="pane_central" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -81,9 +81,9 @@
                   <Component id="icon_auto" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lbl_autto" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="320" max="-2" attributes="0"/>
+                  <Component id="lbl_listadevehiculos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lbl_listadeclientes" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="340" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lbl_nombe_de" max="32767" attributes="0"/>
                       <Component id="lbl_vendedor" min="-2" pref="78" max="-2" attributes="0"/>
@@ -105,8 +105,11 @@
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="lbl_autto" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lbl_autto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_listadevehiculos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -115,10 +118,7 @@
                                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="lbl_nombe_de" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lbl_vendedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl_listadeclientes" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lbl_vendedor" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -148,12 +148,12 @@
             <Property name="text" type="java.lang.String" value="AUTTO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_listadeclientes">
+        <Component class="javax.swing.JLabel" name="lbl_listadevehiculos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="LISTA DE CLIENTES"/>
+            <Property name="text" type="java.lang.String" value="LISTA DE VEHICULOS"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nombe_de">
@@ -176,7 +176,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="pane_lado_izquierdo">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="66" type="rgb"/>
@@ -296,7 +296,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_nuevoActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel18">
+    <Container class="javax.swing.JPanel" name="pane_fondo_buscar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="66" type="rgb"/>
@@ -382,7 +382,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel19">
+    <Container class="javax.swing.JPanel" name="pane_fondo_resultados">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -394,7 +394,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_resultados" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="lbl_num" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -404,14 +404,14 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                  <Component id="jLabel16" alignment="3" max="32767" attributes="0"/>
+                  <Component id="lbl_resultados" alignment="3" max="32767" attributes="0"/>
                   <Component id="lbl_num" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel16">
+        <Component class="javax.swing.JLabel" name="lbl_resultados">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -432,7 +432,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="pnlTabla">
+    <Container class="javax.swing.JPanel" name="pane_central">
 
       <Layout>
         <DimensionLayout dim="0">
