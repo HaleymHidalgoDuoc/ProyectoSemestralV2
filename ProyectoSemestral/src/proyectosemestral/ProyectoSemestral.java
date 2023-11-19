@@ -4,6 +4,8 @@
  */
 package proyectosemestral;
 
+import proyectosemestral.Vistas.VLogin;
+
 /**
  *
  * @author angel
@@ -15,6 +17,7 @@ public class ProyectoSemestral {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        new VLogin().setVisible(true);
     }
     
 }
