@@ -41,7 +41,7 @@ public class Registrar_Arriendo extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tat_descripcion = new javax.swing.JTextArea();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txt_identificacion = new javax.swing.JTextField();
@@ -147,11 +147,10 @@ public class Registrar_Arriendo extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        tat_descripcion.setColumns(20);
-        tat_descripcion.setForeground(new java.awt.Color(153, 153, 153));
-        tat_descripcion.setRows(5);
-        tat_descripcion.setText("En este apartado se tiene que añadir\nuna breve descripción del arriendo \ndel vehículo.");
-        jScrollPane2.setViewportView(tat_descripcion);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("En este apartado se tiene que añadir\nuna breve descripción del arriendo \ndel vehículo.");
+        jScrollPane2.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -169,9 +168,9 @@ public class Registrar_Arriendo extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 204));
@@ -524,12 +523,12 @@ public class Registrar_Arriendo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbl_autto;
     private javax.swing.JLabel lbl_listadeclientes;
     private javax.swing.JLabel lbl_nombe_de;
     private javax.swing.JLabel lbl_puesto;
     private javax.swing.JPanel pane_fondo_superior;
-    private javax.swing.JTextArea tat_descripcion;
     private javax.swing.JTextField txt_fecha;
     private javax.swing.JTextField txt_identificacion;
     private javax.swing.JTextField txt_vehiculo;
