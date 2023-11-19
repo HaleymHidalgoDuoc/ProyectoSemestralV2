@@ -32,14 +32,14 @@ public class VLogin extends javax.swing.JFrame {
         lbl_Rent = new javax.swing.JLabel();
         lbl_te_ayudamos = new javax.swing.JLabel();
         lbl_tu_experiencia = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        pan_login = new javax.swing.JPanel();
         lbl_Identificacion = new javax.swing.JLabel();
         txt_identificacion = new javax.swing.JTextField();
         lbl_Contraseña = new javax.swing.JLabel();
         lbl_olvido_su_contraseña = new javax.swing.JLabel();
         btn_login = new javax.swing.JButton();
         pwdContraseña = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
+        icon_logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,7 +55,7 @@ public class VLogin extends javax.swing.JFrame {
         lbl_tu_experiencia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbl_tu_experiencia.setText("tu experiencia\"");
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        pan_login.setBackground(new java.awt.Color(204, 204, 204));
 
         lbl_Identificacion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_Identificacion.setText("Identificación");
@@ -88,41 +88,38 @@ public class VLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\angel\\Downloads\\car-removebg-preview.png")); // NOI18N
+        icon_logo.setIcon(new javax.swing.ImageIcon("C:\\Users\\angel\\Downloads\\car-removebg-preview.png")); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lbl_Contraseña)
-                                    .addComponent(txt_identificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                                    .addComponent(pwdContraseña)
-                                    .addComponent(lbl_Identificacion)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(lbl_olvido_su_contraseña)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pan_loginLayout = new javax.swing.GroupLayout(pan_login);
+        pan_login.setLayout(pan_loginLayout);
+        pan_loginLayout.setHorizontalGroup(
+            pan_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan_loginLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
+            .addGroup(pan_loginLayout.createSequentialGroup()
+                .addGroup(pan_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pan_loginLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(pan_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbl_Contraseña)
+                            .addComponent(txt_identificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                            .addComponent(pwdContraseña)
+                            .addComponent(lbl_Identificacion)))
+                    .addGroup(pan_loginLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(lbl_olvido_su_contraseña))
+                    .addGroup(pan_loginLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(icon_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+        pan_loginLayout.setVerticalGroup(
+            pan_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pan_loginLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(icon_logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_Identificacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -151,14 +148,14 @@ public class VLogin extends javax.swing.JFrame {
                     .addComponent(lbl_te_ayudamos)
                     .addComponent(lbl_Rent)
                     .addComponent(lbl_AUTTO))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
+                .addComponent(pan_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(242, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(236, Short.MAX_VALUE)
+                .addContainerGap(194, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbl_AUTTO)
@@ -170,8 +167,8 @@ public class VLogin extends javax.swing.JFrame {
                         .addComponent(lbl_tu_experiencia)
                         .addGap(267, 267, 267))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(168, 168, 168))))
+                        .addComponent(pan_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(168, Short.MAX_VALUE))))
         );
 
         pack();
@@ -230,8 +227,7 @@ public class VLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel icon_logo;
     private javax.swing.JLabel lbl_AUTTO;
     private javax.swing.JLabel lbl_Contraseña;
     private javax.swing.JLabel lbl_Identificacion;
@@ -239,6 +235,7 @@ public class VLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_olvido_su_contraseña;
     private javax.swing.JLabel lbl_te_ayudamos;
     private javax.swing.JLabel lbl_tu_experiencia;
+    private javax.swing.JPanel pan_login;
     private javax.swing.JPasswordField pwdContraseña;
     private javax.swing.JTextField txt_identificacion;
     // End of variables declaration//GEN-END:variables
