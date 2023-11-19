@@ -57,7 +57,7 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="pan_login" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="168" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -207,11 +207,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="icon_logo">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\angel\Downloads\car-removebg-preview.png"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
