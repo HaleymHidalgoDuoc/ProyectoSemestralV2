@@ -100,7 +100,7 @@ public class VLogin extends javax.swing.JFrame {
                         .addGap(63, 63, 63)
                         .addComponent(lbl_olvido_su_contraseña))
                     .addGroup(pan_loginLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addGap(14, 14, 14)
                         .addComponent(icon_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
