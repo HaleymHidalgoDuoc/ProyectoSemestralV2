@@ -148,7 +148,7 @@ public class Registrar_Arriendo extends javax.swing.JFrame {
         );
 
         tat_descripcion.setColumns(20);
-        tat_descripcion.setForeground(new java.awt.Color(204, 204, 204));
+        tat_descripcion.setForeground(new java.awt.Color(153, 153, 153));
         tat_descripcion.setRows(5);
         tat_descripcion.setText("En este apartado se tiene que añadir\nuna breve descripción del arriendo \ndel vehículo.");
         jScrollPane2.setViewportView(tat_descripcion);
@@ -179,7 +179,7 @@ public class Registrar_Arriendo extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Identificacion");
 
-        txt_identificacion.setForeground(new java.awt.Color(204, 204, 204));
+        txt_identificacion.setForeground(new java.awt.Color(153, 153, 153));
         txt_identificacion.setText("RUT/PASAPORTE");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -209,7 +209,7 @@ public class Registrar_Arriendo extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Vehiculo");
 
-        txt_vehiculo.setForeground(new java.awt.Color(204, 204, 204));
+        txt_vehiculo.setForeground(new java.awt.Color(153, 153, 153));
         txt_vehiculo.setText("Patente");
 
         jPanel9.setBackground(new java.awt.Color(102, 102, 102));
@@ -264,7 +264,7 @@ public class Registrar_Arriendo extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Fecha de entrega");
 
-        txt_fecha.setForeground(new java.awt.Color(204, 204, 204));
+        txt_fecha.setForeground(new java.awt.Color(153, 153, 153));
         txt_fecha.setText("DD/MM/YYYY");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);

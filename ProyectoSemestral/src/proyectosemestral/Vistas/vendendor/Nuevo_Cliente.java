@@ -100,7 +100,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        txt_nombre.setForeground(new java.awt.Color(204, 204, 204));
+        txt_nombre.setForeground(new java.awt.Color(153, 153, 153));
         txt_nombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_nombre.setText("Nombre completo");
 
@@ -127,7 +127,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        txt_identificacion.setForeground(new java.awt.Color(204, 204, 204));
+        txt_identificacion.setForeground(new java.awt.Color(153, 153, 153));
         txt_identificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_identificacion.setText("RUT/PASAPORTE");
 
@@ -154,7 +154,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        txt_email.setForeground(new java.awt.Color(204, 204, 204));
+        txt_email.setForeground(new java.awt.Color(153, 153, 153));
         txt_email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_email.setText("EXAMPLE@DUOCUC.CL");
 
@@ -181,7 +181,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        txt_direccion.setForeground(new java.awt.Color(204, 204, 204));
+        txt_direccion.setForeground(new java.awt.Color(153, 153, 153));
         txt_direccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_direccion.setText("DIRECCION");
         txt_direccion.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +213,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        txt_telefono.setForeground(new java.awt.Color(204, 204, 204));
+        txt_telefono.setForeground(new java.awt.Color(153, 153, 153));
         txt_telefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_telefono.setText("+56  9 5555 5555");
         txt_telefono.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +240,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
             }
         });
 
-        txt_fecha.setForeground(new java.awt.Color(204, 204, 204));
+        txt_fecha.setForeground(new java.awt.Color(153, 153, 153));
         txt_fecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_fecha.setText("MM/DD/YYYY");
         txt_fecha.addActionListener(new java.awt.event.ActionListener() {
