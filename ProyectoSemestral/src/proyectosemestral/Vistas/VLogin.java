@@ -1,6 +1,10 @@
 package proyectosemestral.Vistas;
 
+import Controlador.Registro;
+import Modelo.Empleado;
 import javax.swing.JOptionPane;
+import proyectosemestral.Vistas.Administrador.VAdministrador;
+import proyectosemestral.Vistas.vendendor.Vendedor;
 
 public class VLogin extends javax.swing.JFrame {
 
@@ -23,11 +27,11 @@ public class VLogin extends javax.swing.JFrame {
         lbl_tu_experiencia = new javax.swing.JLabel();
         pan_login = new javax.swing.JPanel();
         lbl_Identificacion = new javax.swing.JLabel();
-        txt_identificacion = new javax.swing.JTextField();
+        txtIdentificacion = new javax.swing.JTextField();
         lbl_Contraseña = new javax.swing.JLabel();
         lbl_olvido_su_contraseña = new javax.swing.JLabel();
         btn_login = new javax.swing.JButton();
-        pwdContraseña = new javax.swing.JPasswordField();
+        pwdContrasenia = new javax.swing.JPasswordField();
         icon_logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,9 +54,9 @@ public class VLogin extends javax.swing.JFrame {
         lbl_Identificacion.setText("Identificación");
         lbl_Identificacion.setToolTipText("");
 
-        txt_identificacion.addActionListener(new java.awt.event.ActionListener() {
+        txtIdentificacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_identificacionActionPerformed(evt);
+                txtIdentificacionActionPerformed(evt);
             }
         });
 
@@ -71,13 +75,11 @@ public class VLogin extends javax.swing.JFrame {
             }
         });
 
-        pwdContraseña.addActionListener(new java.awt.event.ActionListener() {
+        pwdContrasenia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwdContraseñaActionPerformed(evt);
+                pwdContraseniaActionPerformed(evt);
             }
         });
-
-        icon_logo.setIcon(new javax.swing.ImageIcon("C:\\Users\\angel\\Downloads\\car-removebg-preview.png")); // NOI18N
 
         javax.swing.GroupLayout pan_loginLayout = new javax.swing.GroupLayout(pan_login);
         pan_login.setLayout(pan_loginLayout);
@@ -93,8 +95,8 @@ public class VLogin extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addGroup(pan_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_Contraseña)
-                            .addComponent(txt_identificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                            .addComponent(pwdContraseña)
+                            .addComponent(txtIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                            .addComponent(pwdContrasenia)
                             .addComponent(lbl_Identificacion)))
                     .addGroup(pan_loginLayout.createSequentialGroup()
                         .addGap(63, 63, 63)
@@ -112,11 +114,11 @@ public class VLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_Identificacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_identificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(lbl_Contraseña)
                 .addGap(18, 18, 18)
-                .addComponent(pwdContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pwdContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(lbl_olvido_su_contraseña)
                 .addGap(26, 26, 26)
@@ -157,24 +159,62 @@ public class VLogin extends javax.swing.JFrame {
                         .addGap(267, 267, 267))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(pan_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(168, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_identificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_identificacionActionPerformed
+    private void txtIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_identificacionActionPerformed
+    }//GEN-LAST:event_txtIdentificacionActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        //Login Provicional
+        //Login Funcional
+        String identificacion = txtIdentificacion.getText(); //Obtengo el ID
+        String contrasenia = pwdContrasenia.getText(); //Obtengo el Pass
+        
+        Registro cnx = new Registro(); //Creo una "Conexion"
+        Empleado emp = cnx.buscarRUT(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
+        
+        
+        
+        //Prueba de Datos ----------------------- BORRAR!!
+        System.out.println(emp.toString());
+        
+        try {
+            if( emp.getRutEmpleado().equals(identificacion) &&
+                emp.getContrasenia().equals(contrasenia) &&
+                emp.getTipoEmpleado().equals("VENDEDOR")){
+                
+                //Inicia una instancia de la ventana Vendedor
+                Vendedor ventVendedor = new Vendedor();
+                ventVendedor.setEmpleado(emp);
+                ventVendedor.setVisible(true);
+                this.setVisible(false);
+                
+            }else if( emp.getRutEmpleado().equals(identificacion)){
+                
+                //Inicia una instancia de la ventana Vendedor
+                VAdministrador ventAdministrador = new VAdministrador();
+                ventAdministrador.setEmpleado(emp); // ------> Hay un Error
+                ventAdministrador.setVisible(true);
+                this.setVisible(false);
+                
+            } else{
+                System.out.println("Usuario o Contraseña Invalida");
+            }  
+        } catch (Exception e) {
+            System.out.println("Error al listar empleado por id" + e.getMessage());
+        }        
+        
+        
     }//GEN-LAST:event_btn_loginActionPerformed
 
-    private void pwdContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdContraseñaActionPerformed
+    private void pwdContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdContraseniaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pwdContraseñaActionPerformed
+    }//GEN-LAST:event_pwdContraseniaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,7 +261,7 @@ public class VLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_te_ayudamos;
     private javax.swing.JLabel lbl_tu_experiencia;
     private javax.swing.JPanel pan_login;
-    private javax.swing.JPasswordField pwdContraseña;
-    private javax.swing.JTextField txt_identificacion;
+    private javax.swing.JPasswordField pwdContrasenia;
+    private javax.swing.JTextField txtIdentificacion;
     // End of variables declaration//GEN-END:variables
 }
