@@ -19,12 +19,11 @@ public class Registro {
         try {
             //Crear Conexcion
             Conexion conexion1 = new Conexion();
-            Connection cnx = conexion1.obtenerConexion();
+            Connection cnx = conexion1.obtenerConexion(); // Error Aqui -------------
             System.out.println("Conexion Exitosa");
 
             //Consultar
             String query = "SELECT * FROM empleado WHERE rut_empleado = " + "'" + identificacion + "';";
-            System.out.println(query);
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             //Permanencia de Datos
@@ -33,8 +32,8 @@ public class Registro {
                 cuenta.setRutEmpleado(rs.getString("rut_empleado"));
                 cuenta.setTipoEmpleado(rs.getString("tipo_empleado"));
                 cuenta.setNombre(rs.getString("nombre"));
-                cuenta.setApellidoM(rs.getString("apellidom"));
                 cuenta.setApellidoP(rs.getString("apellidop"));
+                cuenta.setApellidoM(rs.getString("apellidom"));
                 cuenta.setDireccion(rs.getString("direccion"));
                 cuenta.setEmail(rs.getString("email"));
                 cuenta.setTelefono(rs.getString("telefono"));
