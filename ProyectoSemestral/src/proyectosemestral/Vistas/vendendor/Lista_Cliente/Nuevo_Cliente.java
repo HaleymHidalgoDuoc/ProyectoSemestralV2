@@ -4,7 +4,6 @@
  */
 package proyectosemestral.Vistas.vendendor.Lista_Cliente;
 
-import Controlador.Registro;
 import Modelo.Cliente;
 import java.util.Date;
 
@@ -522,8 +521,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         cliente.setEstado(true);
         
         //Guardo los datos en la BD
-        System.out.println(cliente.toString()); // <----------- BORRAR
-        Registro con = new Registro();
+        Cliente con = new Cliente();
         int num = con.guardarCliente(cliente);
         
         if(num == 1){

@@ -4,7 +4,6 @@
  */
 package proyectosemestral.Vistas.vendendor.Lista_Cliente;
 
-import Controlador.Registro;
 import Modelo.Cliente;
 import java.util.Date;
 
@@ -474,7 +473,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
         cliente.setEstado(true);
         
         //Guardo los datos en la BD
-        Registro con = new Registro();
+        Cliente con = new Cliente();
         con.actualizarCliente(cliente);
 
     }//GEN-LAST:event_btn_aceptarActionPerformed
