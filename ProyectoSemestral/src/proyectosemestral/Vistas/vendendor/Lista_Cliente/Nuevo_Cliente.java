@@ -523,7 +523,13 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         cliente.setFechaNacimiento(nac);
         
         cliente.setDireccion(this.txtDireccion.getText());
-        cliente.setEmail(this.txtEmail.getText());
+        if(cliente.validarEmail(txtEmail.getText())){
+            
+        }else{
+         JOptionPane.showMessageDialog(this, "El EMAIL ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        
         cliente.setTelefono(this.txtNrTelefono.getText());
         cliente.setEstado(true);
         
