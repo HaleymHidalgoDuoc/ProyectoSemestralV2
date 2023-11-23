@@ -17,9 +17,10 @@ public class Cliente {
     private String direccion;
     private String email;
     private String telefono;
+    private boolean estado;
     
     //Constructor
-    public Cliente(String idCliente, String tipoCliente, String nombre, String apellidoP, String apellidoM, Date fechaNacimiento, String direccion, String email, String telefono) {
+    public Cliente(String idCliente, String tipoCliente, String nombre, String apellidoP, String apellidoM, Date fechaNacimiento, String direccion, String email, String telefono, boolean estado) {
         this.idCliente = idCliente;
         this.tipoCliente = tipoCliente;
         this.nombre = nombre;
@@ -29,6 +30,10 @@ public class Cliente {
         this.direccion = direccion;
         this.email = email;
         this.telefono = telefono;
+        this.estado = estado;
+    }
+
+    public Cliente() {
     }
     
     //Accesadores y Mutadores
@@ -102,6 +107,21 @@ public class Cliente {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
+    //Metodos Protpios
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "idCliente=" + idCliente + ", tipoCliente=" + tipoCliente + ", nombre=" + nombre + ", apellidoP=" + apellidoP + ", apellidoM=" + apellidoM + ", fechaNacimiento=" + fechaNacimiento + ", direccion=" + direccion + ", email=" + email + ", telefono=" + telefono + ", estado=" + estado + '}';
     }
     
     

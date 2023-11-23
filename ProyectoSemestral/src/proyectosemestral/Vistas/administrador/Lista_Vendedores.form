@@ -86,7 +86,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lbl_nombe_de" max="32767" attributes="0"/>
-                      <Component id="lbl_vendedor" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="lbl_tipoEmpleado" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="lbl_icon_persona" min="-2" max="-2" attributes="0"/>
@@ -118,7 +118,7 @@
                                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="lbl_nombe_de" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbl_vendedor" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_tipoEmpleado" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -158,13 +158,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_nombe_de">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Angel Perugini"/>
+            <Property name="text" type="java.lang.String" value="Nombre Apellido"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_vendedor">
+        <Component class="javax.swing.JLabel" name="lbl_tipoEmpleado">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="Vendedor"/>
+            <Property name="text" type="java.lang.String" value="Tipo Empleado"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_icon_persona">
@@ -325,7 +325,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="N&#xb0; 1"/>
+            <Property name="text" type="java.lang.String" value="N&#xb0; 0"/>
           </Properties>
         </Component>
       </SubComponents>

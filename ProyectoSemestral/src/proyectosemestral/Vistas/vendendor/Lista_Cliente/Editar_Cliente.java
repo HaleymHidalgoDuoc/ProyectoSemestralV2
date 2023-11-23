@@ -12,12 +12,25 @@ import java.util.Date;
  *
  * @author cetecom
  */
-public class Nuevo_Cliente extends javax.swing.JFrame {
+public class Editar_Cliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Nuevo_vendedor1
-     */
-    public Nuevo_Cliente() {
+    //Atributos
+    private Cliente cliente;
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+        txtIdentificacion.setText(cliente.getIdCliente());
+        txtNombre.setText(cliente.getNombre());
+        txtApellidop.setText(cliente.getApellidoP());
+        txtApellidom.setText(cliente.getApellidoM());
+        txtFechaNacimiento.setText(cliente.getFechaNacimiento().toString());
+        txtDireccion.setText(cliente.getDireccion());
+        txtEmail.setText(cliente.getEmail());
+        txtNrTelefono.setText(cliente.getTelefono());
+    }
+    
+    
+    public Editar_Cliente() {
         initComponents();
     }
 
@@ -48,10 +61,6 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         btn_aceptar = new javax.swing.JButton();
         pane_fondo_fecha = new javax.swing.JPanel();
         lbl_fecha_nac = new javax.swing.JLabel();
-        pane_fondo_identifi1 = new javax.swing.JPanel();
-        lbl_identificacion1 = new javax.swing.JLabel();
-        opcExtranjero = new javax.swing.JRadioButton();
-        opcLocal = new javax.swing.JRadioButton();
         txtIdentificacion = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellidop = new javax.swing.JTextField();
@@ -248,35 +257,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        pane_fondo_identifi1.setBackground(new java.awt.Color(153, 153, 153));
-
-        lbl_identificacion1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbl_identificacion1.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_identificacion1.setText("Idenificacion");
-
-        javax.swing.GroupLayout pane_fondo_identifi1Layout = new javax.swing.GroupLayout(pane_fondo_identifi1);
-        pane_fondo_identifi1.setLayout(pane_fondo_identifi1Layout);
-        pane_fondo_identifi1Layout.setHorizontalGroup(
-            pane_fondo_identifi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pane_fondo_identifi1Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(lbl_identificacion1)
-                .addContainerGap(98, Short.MAX_VALUE))
-        );
-        pane_fondo_identifi1Layout.setVerticalGroup(
-            pane_fondo_identifi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pane_fondo_identifi1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lbl_identificacion1)
-                .addGap(10, 10, 10))
-        );
-
-        btgTipoDocumento.add(opcExtranjero);
-        opcExtranjero.setText("Extranjero");
-
-        btgTipoDocumento.add(opcLocal);
-        opcLocal.setText("Local");
-
+        txtIdentificacion.setEditable(false);
         txtIdentificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIdentificacion.setText(" Pasaporte / RUT");
 
@@ -311,11 +292,6 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
 
         txtApellidom.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtApellidom.setText("Apellido");
-        txtApellidom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidomActionPerformed(evt);
-            }
-        });
 
         pane_fondo_Nombre3.setBackground(new java.awt.Color(176, 176, 176));
 
@@ -341,7 +317,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         );
 
         txtFechaNacimiento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtFechaNacimiento.setText("AAAA - MM - DD");
+        txtFechaNacimiento.setText("AAAA / MM / DD");
 
         txtDireccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDireccion.setText(" Direccion");
@@ -380,29 +356,16 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                                     .addComponent(pane_fondo_N, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(20, 20, 20)
                                 .addGroup(pane_panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmail)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                                     .addComponent(txtNrTelefono)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pane_panel_principalLayout.createSequentialGroup()
                                 .addGroup(pane_panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pane_panel_principalLayout.createSequentialGroup()
-                                        .addComponent(pane_fondo_identifi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20))
+                                    .addComponent(pane_fondo_identifi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_panel_principalLayout.createSequentialGroup()
                                         .addGap(1, 1, 1)
-                                        .addGroup(pane_panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_panel_principalLayout.createSequentialGroup()
-                                                .addComponent(pane_fondo_identifi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(20, 20, 20))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_panel_principalLayout.createSequentialGroup()
-                                                .addComponent(pane_fondo_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(20, 20, 20)))))
+                                        .addComponent(pane_fondo_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(20, 20, 20)
                                 .addGroup(pane_panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pane_panel_principalLayout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addComponent(opcLocal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                                        .addComponent(opcExtranjero)
-                                        .addGap(20, 20, 20))
                                     .addComponent(txtIdentificacion)
                                     .addComponent(txtNombre)))
                             .addComponent(pane_fondo_Nuevo_Cliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -431,11 +394,6 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                     .addComponent(pane_fondo_identifi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtIdentificacion))
                 .addGap(20, 20, 20)
-                .addGroup(pane_panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pane_fondo_identifi1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(opcLocal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(opcExtranjero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(pane_panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pane_fondo_Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtNombre))
@@ -501,13 +459,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         //Recolectar los Datos
         Cliente cliente = new Cliente();
         cliente.setIdCliente(this.txtIdentificacion.getText());
-        //Tipo Cliente
-        if(this.opcLocal.isSelected()){
-            cliente.setTipoCliente("LOCAL");
-        } else if(this.opcExtranjero.isSelected()){
-            cliente.setTipoCliente("EXTRANGERO");
-        }
-        
+        cliente.setTipoCliente(this.cliente.getTipoCliente());
         cliente.setNombre(this.txtNombre.getText());
         cliente.setApellidoP(this.txtApellidop.getText());
         cliente.setApellidoM(this.txtApellidom.getText());
@@ -522,22 +474,10 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         cliente.setEstado(true);
         
         //Guardo los datos en la BD
-        System.out.println(cliente.toString()); // <----------- BORRAR
         Registro con = new Registro();
-        int num = con.guardarCliente(cliente);
-        
-        if(num == 1){
-            System.out.println("Guadardado Con Exito");
-        } else if (num >= 2){
-            System.out.println("Error Inesperado +ROW");
-        }
-        
-        
-    }//GEN-LAST:event_btn_aceptarActionPerformed
+        con.actualizarCliente(cliente);
 
-    private void txtApellidomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidomActionPerformed
+    }//GEN-LAST:event_btn_aceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -556,13 +496,13 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Nuevo_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Nuevo_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Nuevo_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Nuevo_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -570,7 +510,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Nuevo_Cliente().setVisible(true);
+                new Editar_Cliente().setVisible(true);
             }
         });
     }
@@ -583,26 +523,20 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Direccion;
     private javax.swing.JLabel lbl_Nombre;
     private javax.swing.JLabel lbl_Nombre1;
-    private javax.swing.JLabel lbl_Nombre2;
     private javax.swing.JLabel lbl_Nombre3;
     private javax.swing.JLabel lbl_e_email;
     private javax.swing.JLabel lbl_fecha_nac;
     private javax.swing.JLabel lbl_identificacion;
-    private javax.swing.JLabel lbl_identificacion1;
     private javax.swing.JLabel lbl_telefono;
-    private javax.swing.JRadioButton opcExtranjero;
-    private javax.swing.JRadioButton opcLocal;
     private javax.swing.JPanel pane_fondo_N;
     private javax.swing.JPanel pane_fondo_Nombre;
     private javax.swing.JPanel pane_fondo_Nombre1;
-    private javax.swing.JPanel pane_fondo_Nombre2;
     private javax.swing.JPanel pane_fondo_Nombre3;
     private javax.swing.JPanel pane_fondo_Nuevo_Cliente;
     private javax.swing.JPanel pane_fondo_direccion;
     private javax.swing.JPanel pane_fondo_email;
     private javax.swing.JPanel pane_fondo_fecha;
     private javax.swing.JPanel pane_fondo_identifi;
-    private javax.swing.JPanel pane_fondo_identifi1;
     private javax.swing.JPanel pane_panel_principal;
     private javax.swing.JTextField txtApellidom;
     private javax.swing.JTextField txtApellidop;

@@ -179,12 +179,7 @@ public class VLogin extends javax.swing.JFrame {
         String contrasenia = pwdContraseña.getText(); //Obtengo el Pass
         
         Registro cnx = new Registro(); //Creo una "Conexion"
-        Empleado emp = cnx.buscarRUT(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
-        
-        
-        
-        //Prueba de Datos ----------------------- BORRAR!!
-        System.out.println(emp.toString());
+        Empleado emp = cnx.buscarEmpleadoID(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
         
         try {
             if( emp.getRutEmpleado().equals(identificacion) &&
@@ -197,15 +192,17 @@ public class VLogin extends javax.swing.JFrame {
                 ventVendedor.setVisible(true);
                 this.setVisible(false);
                 
-            }/*else if( emp.getRutEmpleado().equals(identificacion)){
+            }else if(emp.getRutEmpleado().equals(identificacion) &&
+                emp.getContrasenia().equals(contrasenia) &&
+                emp.getTipoEmpleado().equals("ADMINISTRADOR")){
                 
-                //Inicia una instancia de la ventana Vendedor
+                //Inicia una instancia de la ventana 
                 Lista_Vendedores ventAdministrador = new Lista_Vendedores();
-                ventAdministrador.setEmpleado(emp); // ------> Hay un Error
+                ventAdministrador.setEmpleado(emp); 
                 ventAdministrador.setVisible(true);
                 this.setVisible(false);
                 
-            }*/ else{
+            } else{
                 System.out.println("Usuario o Contraseña Invalida");
             }  
         } catch (Exception e) {

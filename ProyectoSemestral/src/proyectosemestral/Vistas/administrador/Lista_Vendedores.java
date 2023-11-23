@@ -4,6 +4,7 @@
  */
 package proyectosemestral.Vistas.administrador;
 
+import Modelo.Empleado;
 import proyectosemestral.Vistas.VLogin;
 import proyectosemestral.Vistas.administrador.Vendedor.Nuevo_Vendedor;
 
@@ -12,6 +13,16 @@ import proyectosemestral.Vistas.administrador.Vendedor.Nuevo_Vendedor;
  * @author angel
  */
 public class Lista_Vendedores extends javax.swing.JFrame {
+    
+    //Atributos
+    private Empleado empleado;
+
+    public void setEmpleado(Empleado emp) {
+        this.empleado = emp;
+        String nombre = empleado.getNombre() + " " + empleado.getApellidoP();
+        lbl_nombe_de.setText(nombre);
+        lbl_tipoEmpleado.setText(empleado.getTipoEmpleado());
+    }
 
     /**
      * Creates new form Vendedor
@@ -34,7 +45,7 @@ public class Lista_Vendedores extends javax.swing.JFrame {
         lbl_autto = new javax.swing.JLabel();
         lbl_listadevendedores = new javax.swing.JLabel();
         lbl_nombe_de = new javax.swing.JLabel();
-        lbl_vendedor = new javax.swing.JLabel();
+        lbl_tipoEmpleado = new javax.swing.JLabel();
         lbl_icon_persona = new javax.swing.JLabel();
         btn_nuevo = new javax.swing.JButton();
         pane_fondo_buscar = new javax.swing.JPanel();
@@ -63,10 +74,10 @@ public class Lista_Vendedores extends javax.swing.JFrame {
         lbl_listadevendedores.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_listadevendedores.setText("LISTA DE VENDEDORES");
 
-        lbl_nombe_de.setText("Angel Perugini");
+        lbl_nombe_de.setText("Nombre Apellido");
 
-        lbl_vendedor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_vendedor.setText("Vendedor");
+        lbl_tipoEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_tipoEmpleado.setText("Tipo Empleado");
 
         lbl_icon_persona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon_person3.png"))); // NOI18N
 
@@ -83,7 +94,7 @@ public class Lista_Vendedores extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_nombe_de, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_tipoEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(47, 47, 47)
                 .addComponent(lbl_icon_persona)
                 .addGap(41, 41, 41))
@@ -108,7 +119,7 @@ public class Lista_Vendedores extends javax.swing.JFrame {
                                 .addGap(34, 34, 34)
                                 .addComponent(lbl_nombe_de)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_vendedor))
+                                .addComponent(lbl_tipoEmpleado))
                             .addGroup(pane_parte_arribaLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(lbl_icon_persona)))
@@ -188,7 +199,7 @@ public class Lista_Vendedores extends javax.swing.JFrame {
 
         lbl_num.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_num.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_num.setText("N° 1");
+        lbl_num.setText("N° 0");
 
         javax.swing.GroupLayout pane_fondo_resultadosLayout = new javax.swing.GroupLayout(pane_fondo_resultados);
         pane_fondo_resultados.setLayout(pane_fondo_resultadosLayout);
@@ -425,7 +436,7 @@ public class Lista_Vendedores extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_nombe_de;
     private javax.swing.JLabel lbl_num;
     private javax.swing.JLabel lbl_resultados;
-    private javax.swing.JLabel lbl_vendedor;
+    private javax.swing.JLabel lbl_tipoEmpleado;
     private javax.swing.JPanel pane_central;
     private javax.swing.JPanel pane_fondo_buscar;
     private javax.swing.JPanel pane_fondo_resultados;

@@ -1,12 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package proyectosemestral.Vistas.vendendor;
 
+import Controlador.Registro;
+import Modelo.Cliente;
 import Modelo.Empleado;
+import Controlador.DibujarTabla;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
 import proyectosemestral.Vistas.VLogin;
-import proyectosemestral.Vistas.vendendor.Lista_Cliente.Nuevo_Cliente;
+import proyectosemestral.Vistas.vendendor.Lista_Cliente.*;
+
+
 
 /**
  *
@@ -20,11 +24,55 @@ public class Lista_Clientes extends javax.swing.JFrame {
     public void setEmpleado(Empleado emp) {
         this.empleado = emp;
         String nombre = empleado.getNombre() + " " + empleado.getApellidoP();
+        //Setea Datos de la Vista
         lbl_nombe_de.setText(nombre);
         lbl_vendedor.setText(empleado.getTipoEmpleado());
+        actualizarTabla();
     }
     
+    //Customer
+    private void actualizarTabla(){
+        //Declaraciones Necesarias
+        DefaultTableModel modelo = (DefaultTableModel) tblClientes.getModel();
+        String identificacion;
+        String nombre;
+        String apellido;
+        boolean estado;
+        JButton btnVer, btnEditar, btnEliminar;
+        
+        Registro con = new Registro();
+        modelo.setRowCount(0);
+        
+        String id = txt_buscar.getText();
+        if(id.isEmpty() || id.equals(" ") || id.equals("Identificación")){
+            //Obtengo la Lista de Clientes
+            List<Cliente> listaClientes = con.buscarClientes();
+            
+            for (Cliente clienteTem : listaClientes) {
+                identificacion = clienteTem.getIdCliente();
+                nombre = clienteTem.getNombre();
+                apellido = clienteTem.getApellidoP() + " " + clienteTem.getApellidoM();
+                estado = clienteTem.getEstado();
+                //Botones de Accion RUD
+                btnVer = new JButton("R");
+                btnVer.setName("ver");
+                btnEditar = new JButton("U");
+                btnEditar.setName("editar");
+                btnEliminar = new JButton("D");
+                btnEliminar.setName("eliminar");
+                //Actualiza el Modelo
+                modelo.addRow(new Object[] {identificacion, nombre, apellido, estado, btnVer, btnEditar, btnEliminar});
+            }
+            //Actializo la Tabla
+            tblClientes.setDefaultRenderer(Object.class, new DibujarTabla());
+            tblClientes.setModel(modelo);
+            
+            String nr_resultados = "Nº " + listaClientes.size();
+            lbl_num.setText(nr_resultados);
+        }
+    }
     
+
 
     /**
      * Creates new form Vendedor
@@ -58,11 +106,12 @@ public class Lista_Clientes extends javax.swing.JFrame {
         pane_fondo_buscar = new javax.swing.JPanel();
         btn_icon_buscar = new javax.swing.JButton();
         txt_buscar = new javax.swing.JTextField();
-        btn_flechita = new javax.swing.JButton();
         pane_fondo_resultados = new javax.swing.JPanel();
         lbl_resultados = new javax.swing.JLabel();
         lbl_num = new javax.swing.JLabel();
         pane_central = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblClientes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -173,25 +222,29 @@ public class Lista_Clientes extends javax.swing.JFrame {
         pane_lado_izquierdoLayout.setHorizontalGroup(
             pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pane_lado_izquierdoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(5, 5, 5)
                 .addGroup(pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_registrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(btn_devolucion, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
+                    .addComponent(btn_registrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_devolucion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_lado_izquierdoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_cerrar_session, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(btn_cerrar_session, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
         );
         pane_lado_izquierdoLayout.setVerticalGroup(
             pane_lado_izquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pane_lado_izquierdoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btn_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(50, 50, 50)
                 .addComponent(btn_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(50, 50, 50)
                 .addComponent(btn_devolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(btn_cerrar_session, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_cerrar_session, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         btn_nuevo.setBackground(new java.awt.Color(102, 102, 102));
@@ -223,27 +276,19 @@ public class Lista_Clientes extends javax.swing.JFrame {
         });
 
         txt_buscar.setForeground(new java.awt.Color(204, 204, 204));
-        txt_buscar.setText("buscar");
+        txt_buscar.setText("Identificación");
         txt_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_buscarActionPerformed(evt);
             }
         });
 
-        btn_flechita.setBackground(new java.awt.Color(102, 102, 102));
-        btn_flechita.setForeground(new java.awt.Color(255, 255, 255));
-        btn_flechita.setText(">");
-        btn_flechita.setBorder(null);
-        btn_flechita.setPreferredSize(new java.awt.Dimension(25, 25));
-
         javax.swing.GroupLayout pane_fondo_buscarLayout = new javax.swing.GroupLayout(pane_fondo_buscar);
         pane_fondo_buscar.setLayout(pane_fondo_buscarLayout);
         pane_fondo_buscarLayout.setHorizontalGroup(
             pane_fondo_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_fondo_buscarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_flechita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(5, 5, 5)
                 .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btn_icon_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,8 +300,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(pane_fondo_buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_icon_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_buscar)
-                    .addComponent(btn_flechita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_buscar))
                 .addContainerGap())
         );
 
@@ -267,7 +311,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
 
         lbl_num.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_num.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_num.setText("N° 1");
+        lbl_num.setText("N° 0");
 
         javax.swing.GroupLayout pane_fondo_resultadosLayout = new javax.swing.GroupLayout(pane_fondo_resultados);
         pane_fondo_resultados.setLayout(pane_fondo_resultadosLayout);
@@ -287,15 +331,61 @@ public class Lista_Clientes extends javax.swing.JFrame {
                 .addComponent(lbl_num, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        tblClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Identificación", "Nombre", "Apellido", "Estado", "Ver", "Editar", "Eliminar"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblClientesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblClientes);
+        if (tblClientes.getColumnModel().getColumnCount() > 0) {
+            tblClientes.getColumnModel().getColumn(0).setResizable(false);
+            tblClientes.getColumnModel().getColumn(1).setResizable(false);
+            tblClientes.getColumnModel().getColumn(2).setResizable(false);
+            tblClientes.getColumnModel().getColumn(3).setResizable(false);
+            tblClientes.getColumnModel().getColumn(4).setResizable(false);
+            tblClientes.getColumnModel().getColumn(4).setPreferredWidth(10);
+            tblClientes.getColumnModel().getColumn(5).setResizable(false);
+            tblClientes.getColumnModel().getColumn(5).setPreferredWidth(10);
+            tblClientes.getColumnModel().getColumn(6).setResizable(false);
+            tblClientes.getColumnModel().getColumn(6).setPreferredWidth(10);
+        }
+
         javax.swing.GroupLayout pane_centralLayout = new javax.swing.GroupLayout(pane_central);
         pane_central.setLayout(pane_centralLayout);
         pane_centralLayout.setHorizontalGroup(
             pane_centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pane_centralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         pane_centralLayout.setVerticalGroup(
             pane_centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(pane_centralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -305,7 +395,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
             .addComponent(pane_parte_arriba, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pane_lado_izquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(224, 224, 224)
+                .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -314,7 +404,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
                         .addGap(255, 255, 255)
                         .addComponent(pane_fondo_resultados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(pane_central, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(122, 122, 122))
+                .addGap(156, 156, 156))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,17 +412,18 @@ public class Lista_Clientes extends javax.swing.JFrame {
                 .addComponent(pane_parte_arriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pane_lado_izquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pane_fondo_resultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pane_fondo_buscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_nuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(33, 33, 33)
-                        .addComponent(pane_central, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addComponent(pane_central, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, 0)
+                        .addComponent(pane_lado_izquierdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, 0))))
         );
 
         pack();
@@ -380,12 +471,67 @@ public class Lista_Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_nuevoActionPerformed
 
     private void btn_icon_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_icon_buscarActionPerformed
-        // TODO add your handling code here:
+        //Actualizar la Tabla
+        actualizarTabla();
     }//GEN-LAST:event_btn_icon_buscarActionPerformed
 
     private void txt_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_buscarActionPerformed
+
+    private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
+        //Botones
+         int columna = tblClientes.getColumnModel().getColumnIndexAtX(evt.getX());
+         int fila = evt.getY()/tblClientes.getRowHeight();
+         
+         if(fila < tblClientes.getRowCount() && fila >= 0 &&
+            columna < tblClientes.getColumnCount() && columna >= 0){
+             
+             Object value = tblClientes.getValueAt(fila, columna);
+             if(value instanceof JButton){
+                 ((JButton)value).doClick();
+                 JButton boton = (JButton) value;
+                 
+                 //Eventos
+                 if(boton.getName().equals("ver")){
+                     
+                    String identificacion = (String) tblClientes.getValueAt(fila, 0);
+
+                    Registro cnx = new Registro(); //Creo una "Conexion"
+                    Cliente cliente = cnx.buscarClienteID(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
+
+                    //Instancia una Ventana de Informacion
+                    Ver_Cliente ver = new Ver_Cliente();
+                    ver.setCliente(cliente);
+                    ver.setVisible(true);
+                     
+                 } else if(boton.getName().equals("editar")){
+                    
+                    String identificacion = (String) tblClientes.getValueAt(fila, 0);
+
+                    Registro cnx = new Registro(); //Creo una "Conexion"
+                    Cliente cliente = cnx.buscarClienteID(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
+
+                    //Instancia una Ventana de Edicion
+                    Editar_Cliente editar = new Editar_Cliente();
+                    editar.setCliente(cliente);
+                    editar.setVisible(true);
+                      
+                 } else if(boton.getName().equals("eliminar")){
+                     
+                    String identificacion = (String) tblClientes.getValueAt(fila, 0);
+                    
+                    Registro cnx = new Registro(); //Creo una "Conexion"
+                    Cliente cliente = cnx.buscarClienteID(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
+                    
+                    //Instancia de una Ventana de Eliminacion
+                    Eliminar_Cliente eliminar = new Eliminar_Cliente();
+                    eliminar.setCliente(cliente);
+                    eliminar.setVisible(true);
+                 }   
+             }
+         }
+    }//GEN-LAST:event_tblClientesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -427,11 +573,11 @@ public class Lista_Clientes extends javax.swing.JFrame {
     private javax.swing.JButton btn_cerrar_session;
     private javax.swing.JButton btn_clientes;
     private javax.swing.JButton btn_devolucion;
-    private javax.swing.JButton btn_flechita;
     private javax.swing.JButton btn_icon_buscar;
     private javax.swing.JButton btn_nuevo;
     private javax.swing.JButton btn_registrar;
     private javax.swing.JLabel icon_auto;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_autto;
     private javax.swing.JLabel lbl_icon_persona;
     private javax.swing.JLabel lbl_listadeclientes;
@@ -444,6 +590,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
     private javax.swing.JPanel pane_fondo_resultados;
     private javax.swing.JPanel pane_lado_izquierdo;
     private javax.swing.JPanel pane_parte_arriba;
+    private javax.swing.JTable tblClientes;
     private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
 }
