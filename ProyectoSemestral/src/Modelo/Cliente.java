@@ -141,7 +141,7 @@ public class Cliente {
     }
     
     public boolean validarfechaNacimiento(String fechaNacimiento) {
-    String regex = "^[0-2][0-9][0-9][0-9]/(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1])$";
+    String regex = "^[1-2][0-9][0-9][0-9]/(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1])$";
     return fechaNacimiento.matches(regex);   
     }
     
@@ -234,8 +234,7 @@ public class Cliente {
         return cuenta;
     }
     
-    public int guardarCliente(Cliente cliente){
-        int num = 0;
+    public boolean guardarCliente(Cliente cliente){
         try{
         //Crear Conexcion
         Conexion conexion1 = new Conexion();
@@ -259,15 +258,15 @@ public class Cliente {
         stmt.setString(8, cliente.getEmail());
         stmt.setString(9, cliente.getTelefono());
         stmt.setBoolean(10, cliente.getEstado());
-        num = stmt.executeUpdate();
+        stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error SQL al agregar Cliente" + e.getMessage());
-            return -1;
+            return false;
         } catch (Exception e) {
             System.out.println("Error al agregar Cliente" + e.getMessage());
-            return -1;
+            return false;
         }
-     return num; 
+     return true;
     }
     
     public boolean actualizarCliente(Cliente cliente){

@@ -519,7 +519,13 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         
         // Fecha Nacimiento
         Date nac = new Date("2003/9/19");
-        cliente.setFechaNacimiento(nac);
+  
+        if(cliente.validarfechaNacimiento(txtFechaNacimiento.getText())){
+            cliente.setFechaNacimiento(nac);
+        }else{
+         JOptionPane.showMessageDialog(this, "LA FECHA DE NACIMIENTO ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
+        
         
         cliente.setDireccion(this.txtDireccion.getText());
         
@@ -535,12 +541,12 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         
         //Guardo los datos en la BD
         Cliente con = new Cliente();
-        int num = con.guardarCliente(cliente);
-        
-        if(num == 1){
-            System.out.println("Guadardado Con Exito");
-        } else if (num >= 2){
-            System.out.println("Error Inesperado +ROW");
+        if(con.guardarCliente(cliente)){
+            
+            JOptionPane.showMessageDialog(this, "SE GUARDO CORRECTAMENTE","Validación", JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+            JOptionPane.showMessageDialog(this, "HUBO UN ERROR AL GUARDAR LOS DATOS","Validación", JOptionPane.WARNING_MESSAGE);
         }
         
         
