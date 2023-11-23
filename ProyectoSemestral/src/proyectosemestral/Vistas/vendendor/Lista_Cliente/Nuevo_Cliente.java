@@ -503,9 +503,9 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         
         
         if(cliente.validarRut(txtIdentificacion.getText())){
-   
+            
         }else{
-            JOptionPane.showMessageDialog(this, "El RUT ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(this, "El RUT ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
         }
         //Tipo Cliente
         if(this.opcLocal.isSelected()){
