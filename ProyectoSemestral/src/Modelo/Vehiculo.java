@@ -102,5 +102,15 @@ public class Vehiculo {
         this.tipoVehiculo = tipoVehiculo;
     }
     
+    //Metodos Validaciones
+    public boolean validarPatente(String Patente) {
+    String regex = "^\\d{4}[A-Z]{2}|[A-Z]{2}\\d{4}$";
+    return Patente.matches(regex);   
+    }
+     
+    public  boolean validarAnio(String anio) {
+    String regex = "^19[0-9]{2}|2[0-9]{3}$";
+    return anio.matches(regex);   
+    }
     
 }

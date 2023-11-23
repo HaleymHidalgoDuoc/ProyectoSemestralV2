@@ -20,8 +20,8 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
         //Actualizar los datos
         txtIdentificacion.setText(empleado.getRutEmpleado());
         txtNombre.setText(empleado.getNombre());
-        txtApellido.setText(empleado.getApellidoP());
-        txtApellido.setText(empleado.getApellidoP());
+        txtApellidop.setText(empleado.getApellidoP());
+        txtApellidom.setText(empleado.getApellidoM());
         txtDireccion.setText(empleado.getDireccion());
         txtEmail.setText(empleado.getEmail());
         txtNrTelefono.setText(empleado.getTelefono());
@@ -53,7 +53,7 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         lblApellido = new javax.swing.JLabel();
-        txtApellido = new javax.swing.JTextField();
+        txtApellidom = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         lblDireccion = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -63,7 +63,7 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
         txtNrTelefono = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         lblNrTelefono = new javax.swing.JLabel();
-        txtApellido2 = new javax.swing.JTextField();
+        txtApellidop = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         lblApellido1 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
@@ -203,9 +203,9 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        txtApellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtApellido.setText("Araya");
-        txtApellido.setPreferredSize(new java.awt.Dimension(280, 40));
+        txtApellidom.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtApellidom.setText("Araya");
+        txtApellidom.setPreferredSize(new java.awt.Dimension(280, 40));
 
         jPanel7.setBackground(new java.awt.Color(153, 153, 153));
         jPanel7.setPreferredSize(new java.awt.Dimension(280, 40));
@@ -294,9 +294,9 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        txtApellido2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtApellido2.setText("Araya");
-        txtApellido2.setPreferredSize(new java.awt.Dimension(280, 40));
+        txtApellidop.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtApellidop.setText("Araya");
+        txtApellidop.setPreferredSize(new java.awt.Dimension(280, 40));
 
         jPanel10.setBackground(new java.awt.Color(153, 153, 153));
         jPanel10.setPreferredSize(new java.awt.Dimension(280, 40));
@@ -370,11 +370,11 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(txtApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtApellidop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtApellidom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
@@ -410,13 +410,13 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                    .addComponent(txtApellidop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtApellidom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -431,15 +431,15 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtNrTelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pwfContrasenia))
-                .addGap(40, 40, 40)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -469,8 +469,8 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
         empleado.setRutEmpleado(this.txtIdentificacion.getText());
         empleado.setTipoEmpleado("VENDEDOR");
         empleado.setNombre(this.txtNombre.getText());
-        empleado.setApellidoP(this.txtApellido.getText());
-        empleado.setApellidoM(this.txtApellido2.getText());
+        empleado.setApellidoP(this.txtApellidop.getText());
+        empleado.setApellidoM(this.txtApellidom.getText());
         empleado.setEmail(this.txtEmail.getText());
         empleado.setDireccion(this.txtDireccion.getText());
         empleado.setTelefono(this.txtNrTelefono.getText());
@@ -539,8 +539,8 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
     private javax.swing.JLabel lblNrTelefono;
     private javax.swing.JLabel lblNrTelefono1;
     private javax.swing.JPasswordField pwfContrasenia;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtApellido2;
+    private javax.swing.JTextField txtApellidom;
+    private javax.swing.JTextField txtApellidop;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIdentificacion;

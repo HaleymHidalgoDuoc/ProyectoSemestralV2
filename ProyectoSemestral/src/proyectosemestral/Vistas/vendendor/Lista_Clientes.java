@@ -37,7 +37,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
         String identificacion;
         String nombre;
         String apellido;
-        boolean estado;
+        String estado;
         JButton btnVer, btnEditar, btnEliminar;
         
         Cliente con = new Cliente();
@@ -52,7 +52,11 @@ public class Lista_Clientes extends javax.swing.JFrame {
                 identificacion = clienteTem.getIdCliente();
                 nombre = clienteTem.getNombre();
                 apellido = clienteTem.getApellidoP() + " " + clienteTem.getApellidoM();
-                estado = clienteTem.getEstado();
+                if(clienteTem.getEstado()){
+                    estado = "Sin Deuda";
+                } else {
+                    estado = "Con Deuda";
+                }
                 //Botones de Accion RUD
                 btnVer = new JButton("R");
                 btnVer.setName("ver");

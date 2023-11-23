@@ -113,7 +113,22 @@ public class Empleado {
         this.contrasenia = contrasenia;
     }
     
-    //Metodos Propios
+    //Metodos Validaciones
+    public boolean validarRut(String rut) {
+        // Definir la expresión regular para validar el RUT
+        String regex = "^\\d{8}-[\\dKk]$";
+
+        // Verificar si el RUT coincide con la expresión regular
+        return rut.matches(regex);
+    }
+    
+    public boolean validarEmail(String Email) {
+    String regex = ".*@.*";
+    return Email.matches(regex);
+    }
+    
+    
+    //Metodos BD
     @Override
     public String toString() {
         return "Empleado{" + "rutEmpleado=" + rutEmpleado + ", tipoEmpleado=" + tipoEmpleado + ", nombre=" + nombre + ", apellidoP=" + apellidoP + ", apellidoM=" + apellidoM + ", direccion=" + direccion + ", email=" + email + ", telefono=" + telefono + ", contrasenia=" + contrasenia + '}';

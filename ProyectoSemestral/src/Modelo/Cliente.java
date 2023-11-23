@@ -131,7 +131,27 @@ public class Cliente {
         return "Cliente{" + "idCliente=" + idCliente + ", tipoCliente=" + tipoCliente + ", nombre=" + nombre + ", apellidoP=" + apellidoP + ", apellidoM=" + apellidoM + ", fechaNacimiento=" + fechaNacimiento + ", direccion=" + direccion + ", email=" + email + ", telefono=" + telefono + ", estado=" + estado + '}';
     }
     
-    //Metodos
+    //Metodos Validaciones
+    public boolean validarRut(String rut) {
+        // Definir la expresión regular para validar el RUT
+        String regex = "^\\d{8}-[\\dKk]$";
+
+        // Verificar si el RUT coincide con la expresión regular
+        return rut.matches(regex);
+    }
+    
+    public boolean validarfechaNacimiento(String fechaNacimiento) {
+    String regex = "^[0-2][0-9][0-9][0-9]/(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1])$";
+    return fechaNacimiento.matches(regex);   
+    }
+    
+    
+    public boolean validarEmail(String Email) {
+    String regex = ".*@.*";
+    return Email.matches(regex);
+    }
+    
+    //Metodos BD
     public List<Cliente> buscarClientes() {
         List<Cliente> listaClientes = new ArrayList<Cliente>();
 
