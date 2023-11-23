@@ -1,6 +1,7 @@
 package proyectosemestral.Vistas;
 
 import Modelo.Empleado;
+import javax.swing.JOptionPane;
 import proyectosemestral.Vistas.administrador.Lista_Vendedores;
 import proyectosemestral.Vistas.vendendor.Lista_Clientes;
 
@@ -200,7 +201,7 @@ public class VLogin extends javax.swing.JFrame {
                 this.setVisible(false);
                 
             } else{
-                System.out.println("Usuario o Contraseña Invalida");
+                JOptionPane.showMessageDialog(this, "USUARIO O CONTRASEÑA INCORRECTO","Validación", JOptionPane.WARNING_MESSAGE);
             }  
         } catch (Exception e) {
             System.out.println("Error al listar empleado por id" + e.getMessage());
