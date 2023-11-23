@@ -4,7 +4,9 @@
  */
 package proyectosemestral.Vistas.administrador.Vendedor;
 
+import Modelo.Cliente;
 import Modelo.Empleado;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -111,6 +113,11 @@ public class Nuevo_Vendedor extends javax.swing.JFrame {
 
         txtIdentificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIdentificacion.setText(" Pasaporte / RUT");
+        txtIdentificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdentificacionActionPerformed(evt);
+            }
+        });
 
         pane_fondo_Nombre.setBackground(new java.awt.Color(176, 176, 176));
 
@@ -439,28 +446,53 @@ public class Nuevo_Vendedor extends javax.swing.JFrame {
         //Recolectar los Datos
         Empleado empleado = new Empleado();
         empleado.setRutEmpleado(this.txtIdentificacion.getText());
+        
+        if(empleado.validarRut(txtIdentificacion.getText())){
+            empleado.setRutEmpleado(this.txtIdentificacion.getText());
+        }else{
+         JOptionPane.showMessageDialog(this, "El RUT ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
+        
         empleado.setNombre(this.txtNombre.getText());
         empleado.setApellidoP(this.txtApellidop.getText());
         empleado.setApellidoM(this.txtApellidom.getText());;
         empleado.setDireccion(this.txtDireccion.getText());
-        empleado.setEmail(this.txtEmail.getText());
+        
+        
+        if(empleado.validarEmail(txtEmail.getText())){
+            empleado.setEmail(this.txtEmail.getText());
+        }else{
+         JOptionPane.showMessageDialog(this, "El EMAIL ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        
         empleado.setTelefono(this.txtNrTelefono.getText());
         empleado.setContrasenia(this.txtcontrasenia.getText());
+        
+        
+        
 
         //Guardo los datos en la BD
         Empleado con = new Empleado();
-        int num = con.guardarVendedor(empleado);
-
-        if(num == 1){
-            System.out.println("Guadardado Con Exito");
-        } else if (num >= 2){
-            System.out.println("Error Inesperado +ROW");
+        
+        if(con.guardarVendedor(empleado)){
+            
+        JOptionPane.showMessageDialog(this, "SE GUARDO CORRECTAMENTE","Validación", JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+          JOptionPane.showMessageDialog(this, "HUBO UN ERROR AL GUARDAR LOS DATOS","Validación", JOptionPane.WARNING_MESSAGE);
         }
+        
+        
     }//GEN-LAST:event_btn_aceptarActionPerformed
 
     private void txtApellidomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidomActionPerformed
+
+    private void txtIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdentificacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -501,7 +533,6 @@ public class Nuevo_Vendedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_aceptar;
     private javax.swing.JButton btn_volver;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_Contrasenia;
@@ -517,7 +548,6 @@ public class Nuevo_Vendedor extends javax.swing.JFrame {
     private javax.swing.JPanel pane_fondo_Nombre;
     private javax.swing.JPanel pane_fondo_Nombre1;
     private javax.swing.JPanel pane_fondo_Nombre3;
-    private javax.swing.JPanel pane_fondo_Nuevo_Cliente;
     private javax.swing.JPanel pane_fondo_Nuevo_Cliente1;
     private javax.swing.JPanel pane_fondo_direccion;
     private javax.swing.JPanel pane_fondo_email;

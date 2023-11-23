@@ -179,6 +179,10 @@ public class VLogin extends javax.swing.JFrame {
         Empleado emp = new Empleado(); //Creo una "Conexion"
         emp = emp.buscarEmpleadoID(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
         
+        if(emp.getRutEmpleado() == null){
+        JOptionPane.showMessageDialog(this, "USUARIO O CONTRASEÑA ","Validación", JOptionPane.WARNING_MESSAGE);
+        }else
+        
         try {
             if( emp.getRutEmpleado().equals(identificacion) &&
                 emp.getContrasenia().equals(contrasenia) &&
@@ -206,7 +210,6 @@ public class VLogin extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println("Error al listar empleado por id" + e.getMessage());
         }
-        
         
     }//GEN-LAST:event_btn_loginActionPerformed
 

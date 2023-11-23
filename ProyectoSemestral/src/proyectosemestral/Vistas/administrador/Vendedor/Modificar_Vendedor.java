@@ -5,6 +5,7 @@
 package proyectosemestral.Vistas.administrador.Vendedor;
 
 import Modelo.Empleado;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -148,6 +149,11 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
         txtIdentificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIdentificacion.setText("321.321.321-7");
         txtIdentificacion.setPreferredSize(new java.awt.Dimension(280, 40));
+        txtIdentificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdentificacionActionPerformed(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setPreferredSize(new java.awt.Dimension(280, 40));
@@ -472,13 +478,30 @@ public class Modificar_Vendedor extends javax.swing.JFrame {
         empleado.setApellidoP(this.txtApellidop.getText());
         empleado.setApellidoM(this.txtApellidom.getText());
         empleado.setEmail(this.txtEmail.getText());
+        
+        if(empleado.validarEmail(txtEmail.getText())){
+            empleado.setEmail(this.txtEmail.getText());
+        }else{
+         JOptionPane.showMessageDialog(this, "El EMAIL ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
+        
         empleado.setDireccion(this.txtDireccion.getText());
         empleado.setTelefono(this.txtNrTelefono.getText());
         empleado.setContrasenia(this.pwfContrasenia.getText());
         
         Empleado con = new Empleado();
-        con.actualizarEmpleado(empleado);
+                 
+        if(con.actualizarEmpleado(empleado)){
+            JOptionPane.showMessageDialog(this, "SE MODIFICO CORRECTAMENTE","Validación", JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+            JOptionPane.showMessageDialog(this, "HUBO UN ERROR AL MOdificar LOS DATOS","Validación", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btn_aceptarActionPerformed
+
+    private void txtIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdentificacionActionPerformed
 
     /**
      * @param args the command line arguments

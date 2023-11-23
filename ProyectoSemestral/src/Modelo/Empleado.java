@@ -215,8 +215,7 @@ public class Empleado {
         return listaEmpleados;
     }
 
-    public int guardarVendedor(Empleado empleado){
-        int num = 0;
+    public boolean guardarVendedor(Empleado empleado){
         try{
         //Crear Conexcion
         Conexion conexion1 = new Conexion();
@@ -237,15 +236,15 @@ public class Empleado {
         stmt.setString(7, empleado.getEmail());
         stmt.setString(8, empleado.getTelefono());
         stmt.setString(9, empleado.getContrasenia());
-        num = stmt.executeUpdate();
+        stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error SQL al agregar Cliente" + e.getMessage());
-            return -1;
+            return false;
         } catch (Exception e) {
             System.out.println("Error al agregar Cliente" + e.getMessage());
-            return -1;
+            return false;
         }
-     return num; 
+     return true; 
     }
     
     public boolean actualizarEmpleado(Empleado empleado){

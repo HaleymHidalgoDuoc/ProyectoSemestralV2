@@ -463,14 +463,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
     private void btn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarActionPerformed
         //Recolectar los Datos
         Cliente cliente = new Cliente();
-        
-        
-        if(cliente.validarRut(txtIdentificacion.getText())){
-           cliente.setIdCliente(this.txtIdentificacion.getText());
-        }else{
-          JOptionPane.showMessageDialog(this, "El RUT ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
-        }
-        
+        cliente.setIdCliente(this.txtIdentificacion.getText());
         cliente.setTipoCliente(this.cliente.getTipoCliente());
         cliente.setNombre(this.txtNombre.getText());
         cliente.setApellidoP(this.txtApellidop.getText());
@@ -501,7 +494,12 @@ public class Editar_Cliente extends javax.swing.JFrame {
         
         //Guardo los datos en la BD
         Cliente con = new Cliente();
-        con.actualizarCliente(cliente);
+        if(con.actualizarCliente(cliente)){
+            JOptionPane.showMessageDialog(this, "SE MODIFICO CORRECTAMENTE","Validación", JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+            JOptionPane.showMessageDialog(this, "HUBO UN ERROR AL MOdificar LOS DATOS","Validación", JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_btn_aceptarActionPerformed
 
