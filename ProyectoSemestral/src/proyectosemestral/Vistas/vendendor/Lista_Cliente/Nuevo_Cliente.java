@@ -501,9 +501,8 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         //Recolectar los Datos
         Cliente cliente = new Cliente();
         
-        
         if(cliente.validarRut(txtIdentificacion.getText())){
-            
+            cliente.setIdCliente(txtIdentificacion.getText());
         }else{
          JOptionPane.showMessageDialog(this, "El RUT ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
         }
@@ -523,8 +522,9 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         cliente.setFechaNacimiento(nac);
         
         cliente.setDireccion(this.txtDireccion.getText());
+        
         if(cliente.validarEmail(txtEmail.getText())){
-            
+            cliente.setEmail(txtEmail.getText());
         }else{
          JOptionPane.showMessageDialog(this, "El EMAIL ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
         }
