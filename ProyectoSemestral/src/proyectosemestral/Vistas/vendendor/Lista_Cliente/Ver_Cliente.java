@@ -5,8 +5,6 @@
 package proyectosemestral.Vistas.vendendor.Lista_Cliente;
 
 import Modelo.Cliente;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  *
@@ -19,14 +17,11 @@ public class Ver_Cliente extends javax.swing.JFrame {
     public void setCliente(Cliente cli) {
         this.cliente = cli;
         String nombre = cliente.getNombre() + " " + cliente.getApellidoP() + " " + cliente.getApellidoM();
-        //Formato Fecha
-        Date fechaNac = cliente.getFechaNacimiento();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         //Actualizar los datos
         txtTipoCliente.setText(cliente.getTipoCliente());
         txtIdentificacion.setText(cliente.getIdCliente());
         txtNombre.setText(nombre);
-        txtFechaNacimiento.setText(dateFormat.format(fechaNac));
+        txtFechaNacimiento.setText(cliente.getFechaNacimiento().toString());
         txtDireccion.setText(cliente.getDireccion());
         txtEMail.setText(cliente.getEmail());
         txtNrTelefono.setText(cliente.getTelefono());
@@ -445,6 +440,42 @@ public class Ver_Cliente extends javax.swing.JFrame {
 
         this.dispose();
     }//GEN-LAST:event_btn_volverActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Ver_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Ver_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Ver_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Ver_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Ver_Cliente().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_volver;

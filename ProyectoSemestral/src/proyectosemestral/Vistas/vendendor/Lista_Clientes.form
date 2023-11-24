@@ -26,7 +26,7 @@
           <Component id="pane_parte_arriba" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Component id="pane_lado_izquierdo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="btn_nuevo" min="-2" pref="103" max="-2" attributes="0"/>
@@ -37,7 +37,7 @@
                   </Group>
                   <Component id="pane_central" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

@@ -13,26 +13,22 @@ public class Arriendo {
     private Date fechaTermino;
     private int precio;
     private String descripcion;
-    private String idCliente;
-    private String rutVendedor;
-    private String patenteVehiculo;
+    private Cliente cliente;
+    private Empleado vendedor;
+    private Vehiculo vehiculo;
     
     //Constructor
-    public Arriendo(int idRegistro, Date fechaInicio, Date fechaTermino, int precio, String descripcion, String idCliente, String rutVendedor, String patenteVehiculo) {
+    public Arriendo(int idRegistro, Date fechaInicio, Date fechaTermino, int precio, String descripcion, Cliente cliente, Empleado vendedor, Vehiculo vehiculo) {
         this.idRegistro = idRegistro;
         this.fechaInicio = fechaInicio;
         this.fechaTermino = fechaTermino;
         this.precio = precio;
         this.descripcion = descripcion;
-        this.idCliente = idCliente;
-        this.rutVendedor = rutVendedor;
-        this.patenteVehiculo = patenteVehiculo;
-    }
-
-    public Arriendo() {
+        this.cliente = cliente;
+        this.vendedor = vendedor;
+        this.vehiculo = vehiculo;
     }
     
-        
     //Accesadores y Mutadores
     public int getIdRegistro() {
         return idRegistro;
@@ -74,34 +70,28 @@ public class Arriendo {
         this.descripcion = descripcion;
     }
 
-    public String getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public String getRutVendedor() {
-        return rutVendedor;
+    public Empleado getVendedor() {
+        return vendedor;
     }
 
-    public void setRutVendedor(String rutVendedor) {
-        this.rutVendedor = rutVendedor;
+    public void setVendedor(Empleado vendedor) {
+        this.vendedor = vendedor;
     }
 
-    public String getPatenteVehiculo() {
-        return patenteVehiculo;
+    public Vehiculo getVehiculo() {
+        return vehiculo;
     }
 
-    public void setPatenteVehiculo(String patenteVehiculo) {
-        this.patenteVehiculo = patenteVehiculo;
-    }
-    
-    //Customers
-    @Override
-    public String toString() {
-        return "Arriendo{" + "idRegistro=" + idRegistro + ", fechaInicio=" + fechaInicio + ", fechaTermino=" + fechaTermino + ", precio=" + precio + ", descripcion=" + descripcion + ", idCliente=" + idCliente + ", rutVendedor=" + rutVendedor + ", patenteVehiculo=" + patenteVehiculo + '}';
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
     }
     
 }

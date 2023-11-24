@@ -4,8 +4,6 @@
  */
 package proyectosemestral.Vistas.administrador.Vehiculo;
 
-import Modelo.Vehiculo;
-
 
 /**
  *
@@ -13,22 +11,9 @@ import Modelo.Vehiculo;
  */
 public class Ver_Vehiculo extends javax.swing.JFrame {
 
-    //Atributo
-    private Vehiculo vehiculo;
-
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
-        
-        //Setear los datos del formulario
-        this.txtPatente.setText(vehiculo.getPatente());
-        this.txtMarca.setText(vehiculo.getMarca());
-        this.txtNrMotor.setText(vehiculo.getNumMotor());
-        this.txtNrChasis.setText(vehiculo.getNumChasis());
-        this.txtModelo.setText(vehiculo.getModelo());
-        this.txtCombustible.setText(vehiculo.getTipoCombustible());
-        this.txtVehiculo.setText(vehiculo.getTipoVehiculo()); 
-    }
-    
+    /**
+     * Creates new form Nuevo_vendedor1
+     */
     public Ver_Vehiculo() {
         initComponents();
     }
@@ -222,6 +207,11 @@ public class Ver_Vehiculo extends javax.swing.JFrame {
         txtNrMotor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNrMotor.setText("UQA 008 954");
         txtNrMotor.setPreferredSize(new java.awt.Dimension(280, 40));
+        txtNrMotor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNrMotorActionPerformed(evt);
+            }
+        });
 
         txtNrChasis.setEditable(false);
         txtNrChasis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -292,6 +282,11 @@ public class Ver_Vehiculo extends javax.swing.JFrame {
         txtVehiculo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtVehiculo.setText("Camioneta");
         txtVehiculo.setPreferredSize(new java.awt.Dimension(280, 40));
+        txtVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVehiculoActionPerformed(evt);
+            }
+        });
 
         jPanel11.setBackground(new java.awt.Color(153, 153, 153));
         jPanel11.setPreferredSize(new java.awt.Dimension(280, 40));
@@ -415,8 +410,18 @@ public class Ver_Vehiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        // TODO add your handling code here:
+        
         this.dispose();
     }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void txtNrMotorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNrMotorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNrMotorActionPerformed
+
+    private void txtVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVehiculoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtVehiculoActionPerformed
 
     /**
      * @param args the command line arguments

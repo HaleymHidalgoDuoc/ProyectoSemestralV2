@@ -4,7 +4,6 @@
  */
 package proyectosemestral.Vistas.administrador;
 
-import Modelo.Empleado;
 import proyectosemestral.Vistas.VLogin;
 import proyectosemestral.Vistas.administrador.Reporte.Arriendo_Vehiculos;
 import proyectosemestral.Vistas.administrador.Reporte.Top5;
@@ -18,17 +17,9 @@ import proyectosemestral.Vistas.administrador.Reporte.Vehiculos_por_Vendedor;
  */
 public class Lista_Reporte extends javax.swing.JFrame {
 
-    //Atributos
-    private Empleado empleado;
-
-    public void setEmpleado(Empleado emp) {
-        this.empleado = emp;
-        String nombre = empleado.getNombre() + " " + empleado.getApellidoP();
-        lbl_nombe_de.setText(nombre);
-        lblTipoEmpleado.setText(empleado.getTipoEmpleado());
-        //actualizarTabla();
-    }
-    
+    /**
+     * Creates new form Lista_Clientes
+     */
     public Lista_Reporte() {
         initComponents();
     }
@@ -59,7 +50,7 @@ public class Lista_Reporte extends javax.swing.JFrame {
         lbl_autto = new javax.swing.JLabel();
         lbl_listadeclientes = new javax.swing.JLabel();
         lbl_nombe_de = new javax.swing.JLabel();
-        lblTipoEmpleado = new javax.swing.JLabel();
+        lbl_vendedor = new javax.swing.JLabel();
         lbl_icon_persona = new javax.swing.JLabel();
         pane_lado_izquierdo = new javax.swing.JPanel();
         btn_Vendedores = new javax.swing.JButton();
@@ -238,8 +229,8 @@ public class Lista_Reporte extends javax.swing.JFrame {
 
         lbl_nombe_de.setText("Angel Perugini");
 
-        lblTipoEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTipoEmpleado.setText("Vendedor");
+        lbl_vendedor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_vendedor.setText("Vendedor");
 
         lbl_icon_persona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon_person3.png"))); // NOI18N
 
@@ -256,7 +247,7 @@ public class Lista_Reporte extends javax.swing.JFrame {
                 .addGap(277, 277, 277)
                 .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_nombe_de, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTipoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(lbl_icon_persona)
                 .addGap(41, 41, 41))
@@ -280,7 +271,7 @@ public class Lista_Reporte extends javax.swing.JFrame {
                                 .addComponent(lbl_nombe_de)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTipoEmpleado)
+                                    .addComponent(lbl_vendedor)
                                     .addComponent(lbl_listadeclientes)))
                             .addGroup(pane_parte_arribaLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
@@ -401,7 +392,6 @@ public class Lista_Reporte extends javax.swing.JFrame {
 
     private void btnGenerarReporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporte1ActionPerformed
         // TODO add your handling code here:
-        
         new Arriendo_Vehiculos().setVisible(true);
         
         this.dispose();
@@ -459,6 +449,40 @@ public class Lista_Reporte extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_cerrar_sessionActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Lista_Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Lista_Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Lista_Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Lista_Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Lista_Reporte().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerarReporte1;
     private javax.swing.JButton btnGenerarReporte2;
@@ -469,7 +493,6 @@ public class Lista_Reporte extends javax.swing.JFrame {
     private javax.swing.JButton btn_Vendedores;
     private javax.swing.JButton btn_cerrar_session;
     private javax.swing.JLabel icon_auto;
-    private javax.swing.JLabel lblTipoEmpleado;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo2;
     private javax.swing.JLabel lblTitulo3;
@@ -478,6 +501,7 @@ public class Lista_Reporte extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_icon_persona;
     private javax.swing.JLabel lbl_listadeclientes;
     private javax.swing.JLabel lbl_nombe_de;
+    private javax.swing.JLabel lbl_vendedor;
     private javax.swing.JPanel pane_Reporte1;
     private javax.swing.JPanel pane_Reporte2;
     private javax.swing.JPanel pane_Reporte3;

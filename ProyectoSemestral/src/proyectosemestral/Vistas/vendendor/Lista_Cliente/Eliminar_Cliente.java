@@ -4,7 +4,9 @@
  */
 package proyectosemestral.Vistas.vendendor.Lista_Cliente;
 
+import Controlador.Registro;
 import Modelo.Cliente;
+import conexion.Conexion;
 
 /**
  *
@@ -87,7 +89,6 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -97,7 +98,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         //Eliminar Cliente
-        Cliente con = new Cliente();
+        Registro con = new Registro();
         
         if(con.eliminarCliente(cliente)){
             System.out.println("Borrado con Exito");

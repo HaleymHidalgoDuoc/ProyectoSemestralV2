@@ -369,7 +369,7 @@
                   <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lbl_nombe_de" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblTipoEmpleado" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="lbl_vendedor" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="lbl_icon_persona" min="-2" max="-2" attributes="0"/>
@@ -399,7 +399,7 @@
                                   <Component id="lbl_nombe_de" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblTipoEmpleado" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_vendedor" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_listadeclientes" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -444,7 +444,7 @@
             <Property name="text" type="java.lang.String" value="Angel Perugini"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTipoEmpleado">
+        <Component class="javax.swing.JLabel" name="lbl_vendedor">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Vendedor"/>
