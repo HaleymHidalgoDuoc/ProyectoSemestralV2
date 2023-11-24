@@ -5,6 +5,7 @@
 package proyectosemestral.Vistas.vendendor.Lista_Cliente;
 
 import Modelo.Cliente;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -19,11 +20,15 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+        //Formato Fecha
+        Date fechaNac = cliente.getFechaNacimiento();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        //Setter
         txtIdentificacion.setText(cliente.getIdCliente());
         txtNombre.setText(cliente.getNombre());
         txtApellidop.setText(cliente.getApellidoP());
         txtApellidom.setText(cliente.getApellidoM());
-        txtFechaNacimiento.setText(cliente.getFechaNacimiento().toString());
+        txtFechaNacimiento.setText(dateFormat.format(fechaNac));
         txtDireccion.setText(cliente.getDireccion());
         txtEmail.setText(cliente.getEmail());
         txtNrTelefono.setText(cliente.getTelefono());
@@ -470,18 +475,14 @@ public class Editar_Cliente extends javax.swing.JFrame {
         cliente.setApellidoM(this.txtApellidom.getText());
         
         // Fecha Nacimiento
-        Date nac = new Date("2003/9/19");
-        
-        
         if(cliente.validarfechaNacimiento(txtFechaNacimiento.getText())){
-           cliente.setFechaNacimiento(nac);
+            Date nac = new Date(txtFechaNacimiento.getText());
+            cliente.setFechaNacimiento(nac);
         }else{
          JOptionPane.showMessageDialog(this, "LA FECHA DE NACIMIENTO ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
         }
         
-        
         cliente.setDireccion(this.txtDireccion.getText());
-        
         
         if(cliente.validarEmail(txtEmail.getText())){
             cliente.setEmail(this.txtEmail.getText());
@@ -506,42 +507,6 @@ public class Editar_Cliente extends javax.swing.JFrame {
     private void txtIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdentificacionActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Editar_Cliente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgTipoDocumento;

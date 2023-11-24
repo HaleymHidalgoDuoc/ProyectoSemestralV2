@@ -501,9 +501,11 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         //Recolectar los Datos
         Cliente cliente = new Cliente();
         
-        if(cliente.validarRut(txtIdentificacion.getText())){
+        if(opcLocal.isSelected() && cliente.validarRut(txtIdentificacion.getText())){
             cliente.setIdCliente(txtIdentificacion.getText());
-        }else{
+        } else if(opcExtranjero.isSelected()){
+            cliente.setIdCliente(txtIdentificacion.getText());
+        } else{
          JOptionPane.showMessageDialog(this, "El RUT ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
         }
         //Tipo Cliente
@@ -518,9 +520,8 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         cliente.setApellidoM(this.txtApellidom.getText());
         
         // Fecha Nacimiento
-        Date nac = new Date("2003/9/19");
-  
         if(cliente.validarfechaNacimiento(txtFechaNacimiento.getText())){
+            Date nac = new Date(txtFechaNacimiento.getText());
             cliente.setFechaNacimiento(nac);
         }else{
          JOptionPane.showMessageDialog(this, "LA FECHA DE NACIMIENTO ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
