@@ -2,25 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package proyectosemestral.Vistas.vendendor.Lista_Cliente;
+package proyectosemestral.Vistas.Administrador.Vehiculo;
 
-import Modelo.Cliente;
+import proyectosemestral.Vistas.vendendor.Lista_Cliente.*;
+import Modelo.Vehiculo;
 
 /**
  *
  * @author Haleym Hidalgo
  */
-public class Eliminar_Cliente extends javax.swing.JFrame {
+public class Eliminar_Vehiculo extends javax.swing.JFrame {
 
     //Atributos
-    private Cliente cliente;
+    private Vehiculo vehiculo;
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setVehiculo(Vehiculo veh) {
+        this.vehiculo = veh;
     }
     
     
-    public Eliminar_Cliente() {
+    public Eliminar_Vehiculo() {
         initComponents();
     }
 
@@ -41,7 +42,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("¿Seguro de Eliminar al Cliente?");
+        lblTitulo.setText("¿Seguro de Eliminar el Vehiculo?");
 
         btnCancelar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -97,14 +98,15 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         //Eliminar Cliente
-        Cliente con = new Cliente();
+        Vehiculo con = new Vehiculo();
         
-        if(con.eliminarCliente(cliente)){
+        if(con.eliminarVehiculo(vehiculo)){
             System.out.println("Borrado con Exito");
+        }else{
+            System.out.println("Error al Eliminar");
         }
         
-        dispose();
-        
+        dispose();  
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
@@ -124,20 +126,21 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Eliminar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Eliminar_Vehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Eliminar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Eliminar_Vehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Eliminar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Eliminar_Vehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Eliminar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Eliminar_Vehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Eliminar_Cliente().setVisible(true);
+                new Eliminar_Vehiculo().setVisible(true);
             }
         });
     }

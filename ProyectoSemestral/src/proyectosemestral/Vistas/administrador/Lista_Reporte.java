@@ -4,6 +4,7 @@
  */
 package proyectosemestral.Vistas.administrador;
 
+import Modelo.Empleado;
 import proyectosemestral.Vistas.VLogin;
 import proyectosemestral.Vistas.administrador.Reporte.Arriendo_Vehiculos;
 import proyectosemestral.Vistas.administrador.Reporte.Top5;
@@ -17,9 +18,17 @@ import proyectosemestral.Vistas.administrador.Reporte.Vehiculos_por_Vendedor;
  */
 public class Lista_Reporte extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Lista_Clientes
-     */
+    //Atributos
+    private Empleado empleado;
+
+    public void setEmpleado(Empleado emp) {
+        this.empleado = emp;
+        String nombre = empleado.getNombre() + " " + empleado.getApellidoP();
+        lbl_nombe_de.setText(nombre);
+        lblTipoEmpleado.setText(empleado.getTipoEmpleado());
+        //actualizarTabla();
+    }
+    
     public Lista_Reporte() {
         initComponents();
     }
@@ -50,7 +59,7 @@ public class Lista_Reporte extends javax.swing.JFrame {
         lbl_autto = new javax.swing.JLabel();
         lbl_listadeclientes = new javax.swing.JLabel();
         lbl_nombe_de = new javax.swing.JLabel();
-        lbl_vendedor = new javax.swing.JLabel();
+        lblTipoEmpleado = new javax.swing.JLabel();
         lbl_icon_persona = new javax.swing.JLabel();
         pane_lado_izquierdo = new javax.swing.JPanel();
         btn_Vendedores = new javax.swing.JButton();
@@ -229,8 +238,8 @@ public class Lista_Reporte extends javax.swing.JFrame {
 
         lbl_nombe_de.setText("Angel Perugini");
 
-        lbl_vendedor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lbl_vendedor.setText("Vendedor");
+        lblTipoEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTipoEmpleado.setText("Vendedor");
 
         lbl_icon_persona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon_person3.png"))); // NOI18N
 
@@ -247,7 +256,7 @@ public class Lista_Reporte extends javax.swing.JFrame {
                 .addGap(277, 277, 277)
                 .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_nombe_de, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTipoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(lbl_icon_persona)
                 .addGap(41, 41, 41))
@@ -271,7 +280,7 @@ public class Lista_Reporte extends javax.swing.JFrame {
                                 .addComponent(lbl_nombe_de)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pane_parte_arribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_vendedor)
+                                    .addComponent(lblTipoEmpleado)
                                     .addComponent(lbl_listadeclientes)))
                             .addGroup(pane_parte_arribaLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
@@ -392,6 +401,7 @@ public class Lista_Reporte extends javax.swing.JFrame {
 
     private void btnGenerarReporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporte1ActionPerformed
         // TODO add your handling code here:
+        
         new Arriendo_Vehiculos().setVisible(true);
         
         this.dispose();
@@ -493,6 +503,7 @@ public class Lista_Reporte extends javax.swing.JFrame {
     private javax.swing.JButton btn_Vendedores;
     private javax.swing.JButton btn_cerrar_session;
     private javax.swing.JLabel icon_auto;
+    private javax.swing.JLabel lblTipoEmpleado;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo2;
     private javax.swing.JLabel lblTitulo3;
@@ -501,7 +512,6 @@ public class Lista_Reporte extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_icon_persona;
     private javax.swing.JLabel lbl_listadeclientes;
     private javax.swing.JLabel lbl_nombe_de;
-    private javax.swing.JLabel lbl_vendedor;
     private javax.swing.JPanel pane_Reporte1;
     private javax.swing.JPanel pane_Reporte2;
     private javax.swing.JPanel pane_Reporte3;

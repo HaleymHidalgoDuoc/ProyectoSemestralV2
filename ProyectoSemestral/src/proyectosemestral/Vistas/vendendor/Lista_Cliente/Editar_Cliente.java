@@ -4,9 +4,9 @@
  */
 package proyectosemestral.Vistas.vendendor.Lista_Cliente;
 
-import Controlador.Registro;
 import Modelo.Cliente;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -82,7 +82,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nuevo Cliente");
+        jLabel1.setText("Editar Cliente");
 
         javax.swing.GroupLayout pane_fondo_Nuevo_ClienteLayout = new javax.swing.GroupLayout(pane_fondo_Nuevo_Cliente);
         pane_fondo_Nuevo_Cliente.setLayout(pane_fondo_Nuevo_ClienteLayout);
@@ -260,6 +260,11 @@ public class Editar_Cliente extends javax.swing.JFrame {
         txtIdentificacion.setEditable(false);
         txtIdentificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIdentificacion.setText(" Pasaporte / RUT");
+        txtIdentificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdentificacionActionPerformed(evt);
+            }
+        });
 
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombre.setText("Nombre");
@@ -466,18 +471,41 @@ public class Editar_Cliente extends javax.swing.JFrame {
         
         // Fecha Nacimiento
         Date nac = new Date("2003/9/19");
-        cliente.setFechaNacimiento(nac);
+        
+        
+        if(cliente.validarfechaNacimiento(txtFechaNacimiento.getText())){
+           cliente.setFechaNacimiento(nac);
+        }else{
+         JOptionPane.showMessageDialog(this, "LA FECHA DE NACIMIENTO ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
+        
         
         cliente.setDireccion(this.txtDireccion.getText());
-        cliente.setEmail(this.txtEmail.getText());
+        
+        
+        if(cliente.validarEmail(txtEmail.getText())){
+            cliente.setEmail(this.txtEmail.getText());
+        }else{
+         JOptionPane.showMessageDialog(this, "El EMAIL ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
+        
         cliente.setTelefono(this.txtNrTelefono.getText());
         cliente.setEstado(true);
         
         //Guardo los datos en la BD
-        Registro con = new Registro();
-        con.actualizarCliente(cliente);
+        Cliente con = new Cliente();
+        if(con.actualizarCliente(cliente)){
+            JOptionPane.showMessageDialog(this, "SE MODIFICO CORRECTAMENTE","Validación", JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+            JOptionPane.showMessageDialog(this, "HUBO UN ERROR AL MOdificar LOS DATOS","Validación", JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_btn_aceptarActionPerformed
+
+    private void txtIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdentificacionActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,6 +1,6 @@
 package proyectosemestral.Vistas.vendendor;
 
-import Controlador.Registro;
+//import Controlador.Registro;
 import Modelo.Cliente;
 import Modelo.Empleado;
 import Controlador.DibujarTabla;
@@ -37,10 +37,10 @@ public class Lista_Clientes extends javax.swing.JFrame {
         String identificacion;
         String nombre;
         String apellido;
-        boolean estado;
+        String estado;
         JButton btnVer, btnEditar, btnEliminar;
         
-        Registro con = new Registro();
+        Cliente con = new Cliente();
         modelo.setRowCount(0);
         
         String id = txt_buscar.getText();
@@ -52,7 +52,11 @@ public class Lista_Clientes extends javax.swing.JFrame {
                 identificacion = clienteTem.getIdCliente();
                 nombre = clienteTem.getNombre();
                 apellido = clienteTem.getApellidoP() + " " + clienteTem.getApellidoM();
-                estado = clienteTem.getEstado();
+                if(clienteTem.getEstado()){
+                    estado = "Sin Deuda";
+                } else {
+                    estado = "Con Deuda";
+                }
                 //Botones de Accion RUD
                 btnVer = new JButton("R");
                 btnVer.setName("ver");
@@ -395,7 +399,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
             .addComponent(pane_parte_arriba, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pane_lado_izquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140)
+                .addGap(150, 150, 150)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -404,7 +408,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
                         .addGap(255, 255, 255)
                         .addComponent(pane_fondo_resultados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(pane_central, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(156, 156, 156))
+                .addGap(104, 104, 104))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,10 +424,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(pane_central, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(pane_lado_izquierdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(0, 0, 0))))
+                    .addComponent(pane_lado_izquierdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -497,7 +498,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
                      
                     String identificacion = (String) tblClientes.getValueAt(fila, 0);
 
-                    Registro cnx = new Registro(); //Creo una "Conexion"
+                    Cliente cnx = new Cliente(); //Creo una "Conexion"
                     Cliente cliente = cnx.buscarClienteID(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
 
                     //Instancia una Ventana de Informacion
@@ -509,7 +510,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
                     
                     String identificacion = (String) tblClientes.getValueAt(fila, 0);
 
-                    Registro cnx = new Registro(); //Creo una "Conexion"
+                    Cliente cnx = new Cliente(); //Creo una "Conexion"
                     Cliente cliente = cnx.buscarClienteID(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
 
                     //Instancia una Ventana de Edicion
@@ -521,7 +522,7 @@ public class Lista_Clientes extends javax.swing.JFrame {
                      
                     String identificacion = (String) tblClientes.getValueAt(fila, 0);
                     
-                    Registro cnx = new Registro(); //Creo una "Conexion"
+                    Cliente cnx = new Cliente(); //Creo una "Conexion"
                     Cliente cliente = cnx.buscarClienteID(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
                     
                     //Instancia de una Ventana de Eliminacion
