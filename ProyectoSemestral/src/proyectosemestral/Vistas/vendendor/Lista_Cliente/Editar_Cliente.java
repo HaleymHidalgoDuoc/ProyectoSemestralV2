@@ -4,9 +4,10 @@
  */
 package proyectosemestral.Vistas.vendendor.Lista_Cliente;
 
-import Controlador.Registro;
 import Modelo.Cliente;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,11 +20,15 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+        //Formato Fecha
+        Date fechaNac = cliente.getFechaNacimiento();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        //Setter
         txtIdentificacion.setText(cliente.getIdCliente());
         txtNombre.setText(cliente.getNombre());
         txtApellidop.setText(cliente.getApellidoP());
         txtApellidom.setText(cliente.getApellidoM());
-        txtFechaNacimiento.setText(cliente.getFechaNacimiento().toString());
+        txtFechaNacimiento.setText(dateFormat.format(fechaNac));
         txtDireccion.setText(cliente.getDireccion());
         txtEmail.setText(cliente.getEmail());
         txtNrTelefono.setText(cliente.getTelefono());
@@ -82,7 +87,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nuevo Cliente");
+        jLabel1.setText("Editar Cliente");
 
         javax.swing.GroupLayout pane_fondo_Nuevo_ClienteLayout = new javax.swing.GroupLayout(pane_fondo_Nuevo_Cliente);
         pane_fondo_Nuevo_Cliente.setLayout(pane_fondo_Nuevo_ClienteLayout);
@@ -260,6 +265,11 @@ public class Editar_Cliente extends javax.swing.JFrame {
         txtIdentificacion.setEditable(false);
         txtIdentificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIdentificacion.setText(" Pasaporte / RUT");
+        txtIdentificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdentificacionActionPerformed(evt);
+            }
+        });
 
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombre.setText("Nombre");
@@ -465,55 +475,38 @@ public class Editar_Cliente extends javax.swing.JFrame {
         cliente.setApellidoM(this.txtApellidom.getText());
         
         // Fecha Nacimiento
-        Date nac = new Date("2003/9/19");
-        cliente.setFechaNacimiento(nac);
+        if(cliente.validarfechaNacimiento(txtFechaNacimiento.getText())){
+            Date nac = new Date(txtFechaNacimiento.getText());
+            cliente.setFechaNacimiento(nac);
+        }else{
+         JOptionPane.showMessageDialog(this, "LA FECHA DE NACIMIENTO ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
         
         cliente.setDireccion(this.txtDireccion.getText());
-        cliente.setEmail(this.txtEmail.getText());
+        
+        if(cliente.validarEmail(txtEmail.getText())){
+            cliente.setEmail(this.txtEmail.getText());
+        }else{
+         JOptionPane.showMessageDialog(this, "El EMAIL ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
+        
         cliente.setTelefono(this.txtNrTelefono.getText());
         cliente.setEstado(true);
         
         //Guardo los datos en la BD
-        Registro con = new Registro();
-        con.actualizarCliente(cliente);
+        Cliente con = new Cliente();
+        if(con.actualizarCliente(cliente)){
+            JOptionPane.showMessageDialog(this, "SE MODIFICO CORRECTAMENTE","Validación", JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+            JOptionPane.showMessageDialog(this, "HUBO UN ERROR AL MOdificar LOS DATOS","Validación", JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_btn_aceptarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Editar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Editar_Cliente().setVisible(true);
-            }
-        });
-    }
+    private void txtIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdentificacionActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgTipoDocumento;

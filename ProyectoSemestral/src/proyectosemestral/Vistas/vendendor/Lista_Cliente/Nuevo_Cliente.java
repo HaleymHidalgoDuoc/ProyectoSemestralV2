@@ -4,9 +4,9 @@
  */
 package proyectosemestral.Vistas.vendendor.Lista_Cliente;
 
-import Controlador.Registro;
 import Modelo.Cliente;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -279,6 +279,11 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
 
         txtIdentificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIdentificacion.setText(" Pasaporte / RUT");
+        txtIdentificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdentificacionActionPerformed(evt);
+            }
+        });
 
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombre.setText("Nombre");
@@ -384,18 +389,13 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                                     .addComponent(txtNrTelefono)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pane_panel_principalLayout.createSequentialGroup()
                                 .addGroup(pane_panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pane_panel_principalLayout.createSequentialGroup()
-                                        .addComponent(pane_fondo_identifi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20))
+                                    .addComponent(pane_fondo_identifi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_panel_principalLayout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addGroup(pane_panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_panel_principalLayout.createSequentialGroup()
-                                                .addComponent(pane_fondo_identifi1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(20, 20, 20))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_panel_principalLayout.createSequentialGroup()
-                                                .addComponent(pane_fondo_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(20, 20, 20)))))
+                                            .addComponent(pane_fondo_identifi1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(pane_fondo_Nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(20, 20, 20)
                                 .addGroup(pane_panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pane_panel_principalLayout.createSequentialGroup()
                                         .addGap(20, 20, 20)
@@ -500,7 +500,14 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
     private void btn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarActionPerformed
         //Recolectar los Datos
         Cliente cliente = new Cliente();
-        cliente.setIdCliente(this.txtIdentificacion.getText());
+        
+        if(opcLocal.isSelected() && cliente.validarRut(txtIdentificacion.getText())){
+            cliente.setIdCliente(txtIdentificacion.getText());
+        } else if(opcExtranjero.isSelected()){
+            cliente.setIdCliente(txtIdentificacion.getText());
+        } else{
+         JOptionPane.showMessageDialog(this, "El RUT ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
         //Tipo Cliente
         if(this.opcLocal.isSelected()){
             cliente.setTipoCliente("LOCAL");
@@ -513,23 +520,34 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         cliente.setApellidoM(this.txtApellidom.getText());
         
         // Fecha Nacimiento
-        Date nac = new Date("2003/9/19");
-        cliente.setFechaNacimiento(nac);
+        if(cliente.validarfechaNacimiento(txtFechaNacimiento.getText())){
+            Date nac = new Date(txtFechaNacimiento.getText());
+            cliente.setFechaNacimiento(nac);
+        }else{
+         JOptionPane.showMessageDialog(this, "LA FECHA DE NACIMIENTO ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
+        
         
         cliente.setDireccion(this.txtDireccion.getText());
-        cliente.setEmail(this.txtEmail.getText());
+        
+        if(cliente.validarEmail(txtEmail.getText())){
+            cliente.setEmail(txtEmail.getText());
+        }else{
+         JOptionPane.showMessageDialog(this, "El EMAIL ingresado es INVALIDO","Validación", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        
         cliente.setTelefono(this.txtNrTelefono.getText());
         cliente.setEstado(true);
         
         //Guardo los datos en la BD
-        System.out.println(cliente.toString()); // <----------- BORRAR
-        Registro con = new Registro();
-        int num = con.guardarCliente(cliente);
-        
-        if(num == 1){
-            System.out.println("Guadardado Con Exito");
-        } else if (num >= 2){
-            System.out.println("Error Inesperado +ROW");
+        Cliente con = new Cliente();
+        if(con.guardarCliente(cliente)){
+            
+            JOptionPane.showMessageDialog(this, "SE GUARDO CORRECTAMENTE","Validación", JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+            JOptionPane.showMessageDialog(this, "HUBO UN ERROR AL GUARDAR LOS DATOS","Validación", JOptionPane.WARNING_MESSAGE);
         }
         
         
@@ -538,6 +556,11 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
     private void txtApellidomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidomActionPerformed
+
+    private void txtIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificacionActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtIdentificacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -583,7 +606,6 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Direccion;
     private javax.swing.JLabel lbl_Nombre;
     private javax.swing.JLabel lbl_Nombre1;
-    private javax.swing.JLabel lbl_Nombre2;
     private javax.swing.JLabel lbl_Nombre3;
     private javax.swing.JLabel lbl_e_email;
     private javax.swing.JLabel lbl_fecha_nac;
@@ -595,7 +617,6 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
     private javax.swing.JPanel pane_fondo_N;
     private javax.swing.JPanel pane_fondo_Nombre;
     private javax.swing.JPanel pane_fondo_Nombre1;
-    private javax.swing.JPanel pane_fondo_Nombre2;
     private javax.swing.JPanel pane_fondo_Nombre3;
     private javax.swing.JPanel pane_fondo_Nuevo_Cliente;
     private javax.swing.JPanel pane_fondo_direccion;

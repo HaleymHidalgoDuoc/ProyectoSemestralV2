@@ -1,9 +1,7 @@
 package proyectosemestral.Vistas;
 
-import Controlador.Registro;
 import Modelo.Empleado;
 import javax.swing.JOptionPane;
-import proyectosemestral.Vistas.Administrador.VAdministrador;
 import proyectosemestral.Vistas.administrador.Lista_Vendedores;
 import proyectosemestral.Vistas.vendendor.Lista_Clientes;
 
@@ -178,8 +176,12 @@ public class VLogin extends javax.swing.JFrame {
         String identificacion = txt_identificacion.getText(); //Obtengo el ID
         String contrasenia = pwdContraseña.getText(); //Obtengo el Pass
         
-        Registro cnx = new Registro(); //Creo una "Conexion"
-        Empleado emp = cnx.buscarEmpleadoID(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
+        Empleado emp = new Empleado(); //Creo una "Conexion"
+        emp = emp.buscarEmpleadoID(identificacion); //Creo una Instancia de objeto con los datos de la busqueda (devuelve Null si no encuntra)
+        
+        if(emp.getRutEmpleado() == null){
+        JOptionPane.showMessageDialog(this, "USUARIO O CONTRASEÑA ","Validación", JOptionPane.WARNING_MESSAGE);
+        }else
         
         try {
             if( emp.getRutEmpleado().equals(identificacion) &&
@@ -203,12 +205,11 @@ public class VLogin extends javax.swing.JFrame {
                 this.setVisible(false);
                 
             } else{
-                System.out.println("Usuario o Contraseña Invalida");
+                JOptionPane.showMessageDialog(this, "USUARIO O CONTRASEÑA ","Validación", JOptionPane.WARNING_MESSAGE);
             }  
         } catch (Exception e) {
             System.out.println("Error al listar empleado por id" + e.getMessage());
         }
-        
         
     }//GEN-LAST:event_btn_loginActionPerformed
 

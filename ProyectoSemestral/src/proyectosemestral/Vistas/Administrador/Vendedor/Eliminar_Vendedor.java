@@ -2,25 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package proyectosemestral.Vistas.vendendor.Lista_Cliente;
+package proyectosemestral.Vistas.Administrador.Vendedor;
 
-import Modelo.Cliente;
+import Modelo.Empleado;
+import proyectosemestral.Vistas.vendendor.Lista_Cliente.*;
 
 /**
  *
  * @author Haleym Hidalgo
  */
-public class Eliminar_Cliente extends javax.swing.JFrame {
+public class Eliminar_Vendedor extends javax.swing.JFrame {
 
     //Atributos
-    private Cliente cliente;
+    private Empleado empleado;
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
     
     
-    public Eliminar_Cliente() {
+    public Eliminar_Vendedor() {
         initComponents();
     }
 
@@ -97,9 +98,9 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         //Eliminar Cliente
-        Cliente con = new Cliente();
+        Empleado con = new Empleado();
         
-        if(con.eliminarCliente(cliente)){
+        if(con.eliminarVendedor(empleado)){
             System.out.println("Borrado con Exito");
         }
         
@@ -124,20 +125,21 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Eliminar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Eliminar_Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Eliminar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Eliminar_Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Eliminar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Eliminar_Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Eliminar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Eliminar_Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Eliminar_Cliente().setVisible(true);
+                new Eliminar_Vendedor().setVisible(true);
             }
         });
     }
